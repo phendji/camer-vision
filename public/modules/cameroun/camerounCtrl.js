@@ -1,8 +1,7 @@
-/* home controllers*/
-var app = angular.module('home', []);
+/* who controllers*/
+var app = angular.module('cameroun', []);
 
-app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
-    console.log("homeCtrl");
+app.controller('camerounCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 }]);
 
 /*

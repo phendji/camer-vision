@@ -1,8 +1,8 @@
-/* home controllers*/
-var app = angular.module('home', []);
+/* rubrique controllers*/
+var app = angular.module('rubrique', []);
 
-app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
-    console.log("homeCtrl");
+app.controller('rubriqueCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+    console.log("rubriqueCtrl");
 }]);
 
 /*

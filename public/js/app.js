@@ -7,18 +7,20 @@
 var app = angular.module('kmerApp', 
                               	[  
                                   /*'linsigApp.directives',
-                                  'linsigApp.services', 
-                                  'linsigApp.controllers',
+                                  'linsigApp.services',
                                   'angularSpinner',
                                   'searchModule',
                                   'navModule',
                                   'explorModule',
                                   'authModule',*/
+                                  'kmerApp.controllers',
                                   'ngRoute',
                                   'home',
                                   'who',
                                   'horizons',
-                                  'proposition'
+                                  'proposition',
+                                  'cameroun',
+                                  'rubrique'
                               	]);
 
 /*
@@ -45,6 +47,21 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
     .when('/ma-proposition', {
       controller: 'propositionCtrl',
       templateUrl: 'modules/proposition/proposition.html'
+    })
+
+    .when('/le-cameroun', {
+      controller: 'camerounCtrl',
+      templateUrl: 'modules/cameroun/cameroun.html'
+    })
+
+    .when('/documentation', {
+      controller: 'camerounCtrl',
+      templateUrl: 'modules/cameroun/cameroun.html'
+    })
+
+    .when('/sous-rubrique/:id', {
+      controller: 'rubriqueCtrl',
+      templateUrl: 'modules/rubrique/rubrique.html'
     })
 
     .when('/', {
