@@ -1,0 +1,21 @@
+<md-toast class="toaster_class_error">
+    <div>
+        <span class="md-toast-text" flex><b>{{tcpc.data.message | translate}}</b></span>
+        <md-button ng-click="tcpc.closeToast()">
+            <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+        </md-button>
+    </div>
+    <div class="details-toast">
+        <ul>
+            <li>
+                Message d'erreur: {{tcpc.data.errorMessage}}
+            </li>
+            <li>
+                Elève en erreur: {{tcpc.data.studentError}}
+            </li>
+            <li>
+                Dernier SMS envoyé avec succès à : {{tcpc.data.lastSuccess ? tcpc.data.lastSuccess : 'Aucun SMS envoyé'}}
+            </li>
+        </ul>
+    </div>
+</md-toast>

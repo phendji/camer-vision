@@ -1,0 +1,31 @@
+{
+  "name": "camer-vision",
+  "authors": [
+    "patrick hendji <patrick.hendji@gmail.com>"
+  ],
+  "description": "La vision des camerounais pour leur pays",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-aria": "^1.4.8",
+    "angular-cookies": "*",
+    "angular-material": "*",
+    "angular-moment": "*",
+    "bootstrap": "*",
+    "angular-sanitize": "^1.5.8",
+    "angular-filter": "^0.5.11"
+  },
+  "resolutions": {
+    "angular": "1.6.4",
+    "moment": "~2.11.1"
+  }
+}

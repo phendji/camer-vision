@@ -1,0 +1,258 @@
+<md-content class="main-content md-primary md-hue-3 content-edit-hpg" scroll flex>
+    <fieldset id="top-hpg-edit">
+        <div layout="row">
+            <div layout="row" flex="75">
+                <div layout="column" ui-sref="app.hpg">
+                    <ng-md-icon icon="keyboard_backspace"></ng-md-icon>
+                </div>
+                <div layout="column" ui-sref="app.hpg">
+                    <span>{{'hpg_profiles' | translate}} / {{hpgeCtrl.hpg.lastname }} </span>
+                </div>
+            </div>
+            <div layout="column" flex>
+                <span> {{'last_update' | translate}} {{'the' | translate}} {{ hpgeCtrl.hpg.last_update |
+                    myDateFormat:"dd/MM/yyyy" }} </span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="profile-hpg-edit">
+        <div layout="row">
+            <div layout="column" flex="20">
+                <div layout="row">
+                    <img class="img-circle"
+                         src="{{hpgeCtrl.hpg.photo_link ? RemoteApi + 'api' + hpgeCtrl.hpg.photo_link : 'img/profile.jpg'}}"
+                         height="100" width="100">
+                </div>
+                <div layout="row">
+                    <label for="update_photo">
+                        <ng-md-icon ng-disabled="hpgeCtrl.loadingPhoto" icon="photo_camera"></ng-md-icon>
+                    </label>
+                    <label for="update_photo" ng-disabled="hpgeCtrl.loadingPhoto"><b>{{'update_photo' | translate}}</b></label>
+                    <input ng-disabled="hpgeCtrl.loadingPhoto" type='file' id="update_photo" ng-model='hpgeCtrl.importedPhoto' ng-hide="true"
+                           base-sixty-four-input maxsize="5000" accept="image/*"
+                           do-not-parse-if-oversize ng-change="hpgeCtrl.upload('photo')">
+                    <md-progress-circular ng-show="hpgeCtrl.loadingPhoto" class="md-accent" md-diameter="40"></md-progress-circular>
+                </div>
+            </div>
+            <div layout="column" flex="40" flex-offset="10">
+                <div layout="row">
+                    <b>{{hpgeCtrl.hpg.firstname + ' ' + hpgeCtrl.hpg.lastname}}</b> {{hpgeCtrl.hpg.assignments[0].job}}
+                </div>
+                <div layout="row">
+                    {{hpgeCtrl.hpg.age}} {{'years_old' | translate}}
+                </div>
+            </div>
+            <div layout="column" flex="10" flex-offset="20">
+                <md-button ng-class="hpgeCtrl.hpg.is_g70 ? 'md-raised md-accent md-hue-1 white-color': 'md-raised'"
+                           ng-click="hpgeCtrl.setG70()">{{'g70' | translate}}
+                </md-button>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="tabs-hpg-edit">
+        <md-toolbar class="md-primary md-hue-1">
+            <md-list class="menu-item">
+                <md-item flex="15" ng-click="hpgeCtrl.scrollTo('identity-hpg-edit')">
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center"
+                                     ng-class="{'active': hpgeCtrl.activeTab === 'identity-hpg-edit'}">
+                        <div class="inset">
+                            {{'situation_identity' | translate}}
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-item flex="15" ng-click="hpgeCtrl.scrollTo('career-hpg-edit')">
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center"
+                                     ng-class="{'active': hpgeCtrl.activeTab === 'career-hpg-edit'}">
+                        <div class="inset">
+                            {{'career_path' | translate}}
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-item flex="15">
+                    <md-item-content md-ink-ripple layout="row"
+                                     layout-align="start center">
+                        <div class="inset">
+                            {{'projections' | translate}}
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-item flex="15" ng-click="hpgeCtrl.scrollTo('formation-hpg-edit')">
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center"
+                                     ng-class="{'active': hpgeCtrl.activeTab === 'formation-hpg-edit'}">
+                        <div class="inset">
+                            {{'formations' | translate}}
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-item flex="15">
+                    <md-item-content md-ink-ripple layout="row"
+                                     layout-align="start center">
+                        <div class="inset">
+                            {{'contacts' | translate}}
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <div flex="15" flex-offset="5" class="inset"
+                     ng-if="hpgeCtrl.hpg.cv_link && hpgeCtrl.hpg.cv_link !== 'X'">
+                    <a ng-disabled="hpgeCtrl.loadingCv" ng-href="{{hpgeCtrl.loadingCv ? '' : RemoteApi + 'api' + hpgeCtrl.hpg.cv_link}}" target="_blank">
+                        <ng-md-icon ng-disabled="hpgeCtrl.loadingCv" icon="link"></ng-md-icon>
+                    </a>
+                    <a ng-disabled="hpgeCtrl.loadingCv" ng-href="{{hpgeCtrl.loadingCv ? '' : RemoteApi + 'api' + hpgeCtrl.hpg.cv_link}}" target="_blank">
+                        {{'open_cv' | translate}}
+                    </a>
+                </div>
+                <div flex="15" flex-offset="5" class="inset"
+                     ng-if="hpgeCtrl.hpg.cv_link === 'X' || !hpgeCtrl.hpg.cv_link">
+                    <label for="upload_cv">
+                        <ng-md-icon ng-disabled="hpgeCtrl.loadingCv" icon="link"></ng-md-icon>
+                    </label>
+                    <label ng-disabled="hpgeCtrl.loadingCv" class="file" for="upload_cv">{{'upload_cv' | translate}}</label>
+                    <input type='file' id="upload_cv" ng-model='hpgeCtrl.importedCV' ng-hide="true"
+                           ng-disabled="hpgeCtrl.loadingCv" base-sixty-four-input
+                           maxsize="5000" accept="application/pdf" do-not-parse-if-oversize
+                           ng-change="hpgeCtrl.upload('cv')">
+                </div>
+                <div flex="5" class="inset">
+                    <md-progress-circular ng-show="hpgeCtrl.loadingCv" class="md-accent md-hue-1" md-diameter="40"></md-progress-circular>
+                </div>
+            </md-list>
+        </md-toolbar>
+    </fieldset>
+    <section>
+        <fieldset id="identity-hpg-edit">
+            <div layout="row">
+                <div layout="column" flex="20">
+                    <div layout="row">
+                        <ng-md-icon icon="contacts"></ng-md-icon>
+                    </div>
+                    <div layout="row">
+                        {{'situation_identity' | translate}}
+                    </div>
+                </div>
+                <div layout="column" flex="30" flex-offset="10">
+                    <div layout="row">
+                        <div layout="column" flex="40">
+                            <b>{{'nationality' | translate}}</b>
+                        </div>
+                        <div layout="column" flex="60">
+                            <span>{{hpgeCtrl.hpg.first_nationality}}<span ng-if="hpgeCtrl.hpg.second_nationality">, {{hpgeCtrl.hpg.second_nationality}}</span></span>
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div layout="column" flex="40">
+                            <b>{{'situation' | translate}}</b>
+                        </div>
+                        <div layout="column" flex="60">
+                            <span>{{hpgeCtrl.hpg.marital_status}}, {{hpgeCtrl.hpg.nb_children}} {{'children2' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div layout="column" flex="30" flex-offset="10">
+                    <div layout="row">
+                        <div layout="column" flex="40">
+                            <b>{{'languages' | translate}}</b>
+                        </div>
+                        <div layout="column" flex="60">
+                            <span>French, English</span>
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div layout="column" flex="40">
+                            <b>{{'children' | translate}}</b>
+                        </div>
+                        <div layout="column" flex="60">
+                            <span>{{hpgeCtrl.hpg.age_children}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset id="career-hpg-edit">
+            <div layout="row">
+                <div layout="column" flex="20">
+                    <div layout="row">
+                        <ng-md-icon icon="work"></ng-md-icon>
+                    </div>
+                    <div layout="row">
+                        {{'career_path' | translate}}
+                    </div>
+                </div>
+                <div layout="column" flex flex-offset="10">
+                    <div layout="row" ng-repeat="assignment in hpgeCtrl.hpg.assignments">
+                        <div layout="column" flex="50">
+                            <div layout="row">
+                                <b>{{assignment.job}}</b>
+                            </div>
+                            <div layout="row">
+                                {{assignment.place}}
+                            </div>
+                        </div>
+                        <div layout="column" flex="30">
+                            <div layout="row">
+                                {{assignment.sigle}}
+                            </div>
+                            <div layout="row">
+                                <b>{{'NP' | translate}} : {{assignment.np}}</b>
+                            </div>
+                        </div>
+                        <div layout="column" flex="20">
+                            <div layout="row">
+                                <span>{{assignment.start_date | myDateFormat:($index === 0 ? "dd/MM/yyyy" : "yyyy")}}</span><span
+                                    ng-if="assignment.end_date"> - {{assignment.end_date | myDateFormat:"yyyy"}}</span><span
+                                    ng-if="$index === 0 && !assignment.end_date"> - {{'today' | translate}}</span>
+                            </div>
+                            <div layout="row">
+                                <md-button class="md-raised not-clickable" ng-if="$index === 0 && !assignment.end_date">
+                                    {{'since' | translate}} {{assignment.start_date | dateFromNow}}
+                                </md-button>
+                                <md-button class="md-raised not-clickable" ng-if="$index !== 0">
+                                    {{assignment.end_date ? (assignment.start_date | dateFromNow:assignment.end_date) : ('NA' | translate)}}
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" ng-init="hpgeCtrl.showNpTrend = false" ng-click="hpgeCtrl.showNpTrend = !hpgeCtrl.showNpTrend">
+                        <div layout="column" flex="95">
+                            <b>{{'see_np_trend' | translate}}</b>
+                        </div>
+                        <div layout="column" flex="5">
+                            <ng-md-icon icon="{{hpgeCtrl.showNpTrend ? 'expand_less' : 'expand_more'}}"></ng-md-icon>
+                        </div>
+                    </div>
+                    <div layout="row" ng-show="hpgeCtrl.showNpTrend" class="slide-animate">
+                        <div layout="column" flex="50">
+                            <highchart id="trendchart" config="hpgeCtrl.chartConfig"></highchart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset id="formation-hpg-edit">
+            <div layout="row">
+                <div layout="column" flex="20">
+                    <div layout="row">
+                        <ng-md-icon icon="school"></ng-md-icon>
+                    </div>
+                    <div layout="row">
+                        {{'formations' | translate}}
+                    </div>
+                </div>
+                <div layout="column" flex flex-offset="10">
+                    <div layout="row" ng-repeat="formation in hpgeCtrl.hpg.formations">
+                        <div layout="column" flex>
+                            <b>{{formation.name}}</b>
+                        </div>
+                        <div layout="column" flex="20">
+                            <md-button class="md-raised not-clickable">
+                                {{formation.start_date | myDateFormat:"yyyy"}}
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </section>
+    <md-button ng-show="scrollY > 300" class='md-fab floating-button md-accent md-hue-1 white-color fade-animate' ng-click="hpgeCtrl.scrollTo('top-hpg-edit')">
+        <ng-md-icon icon="arrow_upwards"></ng-md-icon>
+    </md-button>
+</md-content>

@@ -1,0 +1,112 @@
+<md-dialog aria-label="Lesson" flex="80" style="max-height: 90%">
+    <form ng-cloak name="ps.lesson_form">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{(ps.originalLesson ? 'edit_lesson' : 'adding_lesson') | translate}}{{ps.student}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ps.cancel()">
+                    <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="row" ng-if="ps.originalLesson">
+                    <div class="md-block popup-calendar md-input-container-3" flex="25">
+                        <md-datepicker ng-model="ps.lesson.start_date"
+                                       required></md-datepicker>
+                    </div>
+                    <span class="label_availability">De</span>
+                    <mdp-time-picker mdp-auto-switch="true" ng-model="ps.lesson.start_date"
+                                     required></mdp-time-picker>
+                    <span class="label_availability" style="margin-left: 1em;">à</span>
+                    <mdp-time-picker mdp-auto-switch="true" ng-model="ps.lesson.end_date"
+                                     required></mdp-time-picker>
+                </div>
+                <div layout="row" ng-if="!ps.originalLesson" ng-repeat="singleDate in ps.lesson.dates">
+                    <div class="md-block popup-calendar md-input-container-3" flex="25">
+                        <md-datepicker ng-model="singleDate.start_date"
+                                       required></md-datepicker>
+                    </div>
+                    <span class="label_availability">De</span>
+                    <mdp-time-picker mdp-auto-switch="true" ng-model="singleDate.start_date"
+                                     required></mdp-time-picker>
+                    <span class="label_availability" style="margin-left: 1em;">à</span>
+                    <mdp-time-picker mdp-auto-switch="true" ng-model="singleDate.end_date"
+                                     required></mdp-time-picker>
+                    <div flex="10" class="add-clock-button" ng-if="$index === 0">
+                        <md-button aria-label="add" ng-click="ps.addHour()" class="md-primary md-raised md-small md-hue-1">
+                            <ng-md-icon icon="add"></ng-md-icon>
+                        </md-button>
+                        <md-tooltip md-delay="$root.tooltipDelay">
+                            {{'add_hour_lesson' | translate}}
+                        </md-tooltip>
+                    </div>
+                </div>
+                <div layout="row" class="little-padding-left">
+                    <span class="label_availability">{{'with_instructor' | translate}}</span>
+                    <md-input-container class="md-block md-input-container-3" flex="25">
+                        <md-select class="adjust-select" ng-model="ps.lesson.driving_instructor_id"
+                                   placeholder="{{'instructor' | translate}}">
+                            <md-option ng-value="i.user.id_user"
+                                       ng-repeat="i in ps.instructors">
+                                {{i.user.firstname}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <span class="label_availability" style="margin-left: 3em;">{{'and_with_car' | translate}}</span>
+                    <md-input-container class="md-block md-input-container-3" flex="30">
+                        <md-select class="adjust-select" ng-model="ps.lesson.driving_car_id"
+                                   placeholder="{{'car' | translate}}">
+                            <md-option ng-value="i.id_driving_car"
+                                       ng-repeat="i in ps.cars">
+                                {{i.brand}} {{i.model}} ({{i.color}}) - {{i.matriculation}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row" class="little-padding-left">
+                    <md-input-container class="md-block md-input-container-3" flex="15">
+                        <md-checkbox aria-label="Payée"
+                                     ng-checked="ps.lesson.driving_lesson_billing != null"
+                                     ng-click="ps.handleBilling()"
+                                     style="margin-top: 1em">
+                            {{(!ps.lesson.driving_lesson_billing ? 'unpayed' : 'payed') | translate}}
+                        </md-checkbox>
+                    </md-input-container>
+                    <md-input-container ng-if="ps.lesson.driving_lesson_billing" class="md-block md-input-container-3"
+                                        flex="20">
+                        <md-select ng-model="ps.lesson.driving_lesson_billing.payment_type_id" style="margin-top: 0.5em"
+                                   placeholder="{{'payment_type' | translate}}" required>
+                            <md-option ng-value="i.id_payment_type"
+                                       ng-repeat="i in $root.refs.payment_type">
+                                {{i.label}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <div ng-if="ps.lesson.driving_lesson_billing" class="md-block md-input-container-3" flex="25">
+                        <md-datepicker ng-model="ps.lesson.driving_lesson_billing.payment_date"
+                                       class="lesson-date-picker"
+                                       md-placeholder="{{'payment_date' | translate}}" required></md-datepicker>
+                    </div>
+                </div>
+                <div layout="row" class="little-padding-left">
+                    <md-input-container class="md-block md-input-container-3" flex="auto">
+                        <label>{{'comment' | translate}}</label>
+                        <textarea class="withscroll withlittleheight" name="comment" ng-model="ps.lesson.comment" md-maxlength="1000"
+                                  rows="3" md-select-on-focus></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="ps.cancel()" class="md-warn md-hue-1 md-raised">
+                {{'cancel' | translate}}
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="ps.hide()" ng-disabled="ps.lesson_form.$invalid" class="md-primary md-hue-1 md-raised">
+                {{ps.saveLabel}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

@@ -1,0 +1,209 @@
+/*
+    Copyright (c) 2017 - CAMER-VISION
+*/
+
+/* @Global */
+body{
+	font-size: 12px;
+	background-color:#e9e9dc;
+	background-image:url(/img/bkg.png);
+	background-repeat: no-repeat;
+	font-family: "Trebuchet MS",Tahoma,sans-serif;
+}
+
+a{
+	text-decoration: none;
+}
+
+p{
+	margin: 0px 0px 8px;
+}
+
+/* @Override */
+ul > li > a {
+	padding-top: 5px !important; 
+	padding-bottom: 5px !important; 
+	font-weight: 700;
+	cursor: pointer;
+}
+
+nav{
+	top: 15px;
+	margin-top: 15px;
+}
+
+.navbar-default{
+	background: transparent;
+	border: none;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #ae3925;
+}
+
+.thumbnail{
+	border-radius: 0px;
+}
+
+/**/
+div.container.top{
+	max-width: 962px;
+	background-color: #fff;
+	padding-bottom: 52px;
+	border-bottom: 2px solid #ae3925; 
+}
+
+/* @Header */
+div.logo{
+	margin-top: 15px;
+	min-width: 80px;
+	border-right: 1px solid black;
+}
+
+div.logo img{
+	width: 60px; 
+	height:60px;
+	display: block;
+	margin: auto;
+}
+
+.deco-header{
+	height: 122px;
+	width: 30px;
+	background-color: #f2f2ec;
+}
+
+/*home page*/
+div.container.home{
+	max-width: 962px;
+	background-color: #fff;
+	padding-bottom: 52px;
+	border-bottom: 2px solid #ae3925;
+}
+
+@media screen and (max-width: 768px) {
+    .deco-header {
+        display: none;
+    }
+
+    .title-theme > span{
+    	line-height: 0px !important;
+    }
+
+    .plus-theme{
+    	margin-top: 3px !important;
+    }
+}
+
+@media screen and (max-width: 336px) {
+    .logo {
+        border-right: hidden !important;
+    }
+}
+
+.banner{
+	height: 156px;
+	padding: 0px;
+}
+
+.banner img{
+	height: 100%;
+	width: 100%;
+}
+
+/* @Home, Who, Horizons2035 */
+
+.page-home,
+.page-who,
+.page-horizons{
+	text-align: justify;
+}
+
+.page-home .describe,
+.page-who .describe,
+.page-horizons .describe{
+	margin: 40px 0px;
+}
+
+
+/* @Card of proposition*/
+
+a.card:hover .theme h5{
+	color: #ae3925;
+}
+
+.thumbnail:hover{
+	box-shadow: 0 2px 2px 0 rgba(96,96,96,.3);
+}
+
+.card .theme{
+	margin-top: 20px;
+}
+
+.card .proposition{
+	margin-top: 40px;
+}
+
+.card .probleme{
+	margin-bottom: 10px;
+}
+
+.card .details{
+	color: #ae3925;
+	margin-top: 30px;
+	font-size: 10px;
+}
+
+.details .author{
+	display: inline;
+}
+
+.details .notify{
+	float: right;
+	margin-left: 20px;
+}
+
+/* @Footer */
+div.container.footer{
+	max-width: 962px;
+	padding-top: 30px;
+	font-weight: 700; 
+}
+
+.footer a{
+	color: #000000;
+	font-style: italic;
+}
+
+/*Fixe buttom*/
+.fix-btn {
+  position: fixed;
+  top: 50%;
+  margin-left: -55px;
+}
+
+/*Pages des propositions d'une rubrique*/
+.title{
+	margin: 26px 0px;
+}
+
+
+/* @Override less css modal*/
+.modal-content{
+	border-radius: 0px;
+}
+
+.modal-title{
+	color: #ae3925;
+}
+
+.modal-body{
+	padding: 50px 35px;
+}
+
+@media screen and (max-width: 991px) {
+    .line-separate {
+       display: none;
+    }
+}

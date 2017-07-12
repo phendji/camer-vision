@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app="kmerApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="Les éléctions au cameroun, la vision des camerounais en vue des presidentiels 2018-2025">
+    <meta name="author" content="patrick Hendji">
+    <title>Camer vision</title>
+    <link rel="icon" href="img/ico_camer_vivion.png">
+    
+    <!-- Styles dependencies -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+
+<body class="container-fuild">
+
+    <div class="container home">
+        <div ng-view></div>
+    </div>
+
+    <footer>
+        <div class="container footer">
+            <div class="row">
+                <div class="col-md-6" style="height: 300px;">
+                    <p><a href>Tourisme / Promotion Culturelle</a></p>
+                    <p><a href>Climat des affaires / IDE / Entrepreneuriat</a></p>
+                    <p><a href>Pétrole / Gaz / Exploitation minière</a></p>
+                    <p><a href>Système politique / Institutions / Administration / Société civile</a></p>
+                    <p><a href>Sécurité / Défense / Lutte contre le terrorisme</a></p>
+                    <p><a href>Construire le Vivre-ensemble / Mémoire / Modèle de société / Nationalité</a></p>
+                    <p><a href>Education / Enseignement supérieur / Formation professionnelle</a></p>
+                    <p><a href>Jeunesse / Femmes / Personnes vulnérables</a></p>
+                    <p><a href>Santé / Infrastructures sanitaires / Accès aux soins</a></p>
+                    <p><a href>Innovation / Numérique / Technologies / Développement industriel</a></p>
+                </div>
+                <div class="col-md-6" style="height: 300px;">
+                    <p><a href>Transports / Infrastructures de transports : route-rail-air-mer</a></p>
+                    <p><a href>Ethique / Lutte contre détournements et la corruption</a></p>
+                    <p><a href>Elevage / Agriculture / Agroalimentaire</a></p>
+                    <p><a href>Energie électrique / Energies renouvelables / Infrastructures énergétiques</a></p>
+                    <p><a href>Réchauffement climatique / Développement durable / RSE / Entrepreneuriat social</a></p>
+                    <p><a href>Intégration CEMAC-CEEAC / Coopération internationale / Diplomatie</a></p>
+                    <p><a href>Système économique et financier / Monnaie (FCFA) / Stratégie économique</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- Dependencies sources -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-moment/angular-moment.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js" type="text/javascript"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js" type="text/javascript"></script>
+<script src="bower_components/angular-material/angular-material.min.js" type="text/javascript"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" ></script>
+
+<!-- App sources -->
+<script type="text/javascript" src="js/app.js"></script>
+
+<!--
+<script src="js/config.js"></script>
+<script src="js/routes.js"></script>
+-->
+
+<!-- Modules home -->
+<script src="modules/home/home.js"></script>
+<script src="modules/home/homeCtrl.js"></script>
+
+<!-- Modules who -->
+<script src="modules/who/who.js"></script>
+<script src="modules/who/whoCtrl.js"></script>
+
+<!-- Modules horizons -->
+<script src="modules/horizons/horizons.js"></script>
+<script src="modules/horizons/horizonsCtrl.js"></script>
+
+<!-- Modules proposition -->
+<script src="modules/proposition/proposition.js"></script>
+<script src="modules/proposition/propositionCtrl.js"></script>
+
+
+<!--
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/run.js"></script>
+
+<!-- Services sources --
+
+<script src="services/auth.service.js"></script>
+<script src="services/hpg.service.js"></script>
+
+<!-- Modules Popup --
+
+<script src="modules/utils/popup/popup.js"></script>
+<script src="modules/utils/popup/popupService.js"></script>
+<script src="modules/utils/popup/popupLessonCtrl.js"></script>
+<script src="modules/utils/popup/popupCommentCtrl.js"></script>
+<script src="modules/utils/popup/popupExamCtrl.js"></script>
+
+
+<!-- Modules Menu --
+
+<script src="modules/menu/menu.js"></script>
+<script src="modules/menu/menuCtrl.js"></script>
+
+<!-- Modules HPG --
+
+<script src="modules/hpg/hpg.js"></script>
+<script src="modules/hpg/hpgCtrl.js"></script>
+<script src="modules/hpg/edit/hpgEdit.js"></script>
+<script src="modules/hpg/edit/hpgEditCtrl.js"></script>
+
+<!-- Modules Toaster
+
+<script src="modules/utils/toaster/toaster.js"></script>
+<script src="modules/utils/toaster/toasterCtrl.js"></script>
+<script src="modules/utils/toaster/toasterService.js"></script>
+ -->
+</body>
+</html>

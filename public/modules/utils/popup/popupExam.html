@@ -1,0 +1,86 @@
+<md-dialog aria-label="Lesson" flex="80">
+    <form ng-cloak name="pex.exam_form">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{(pex.exam.id_driving_exam ? 'edit_exam' : 'adding_exam') | translate}}{{pex.student}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="pex.cancel()">
+                    <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="row">
+                    <div class="md-block popup-calendar md-input-container-3" flex="25">
+                        <md-datepicker ng-model="pex.exam.exam_date"
+                                       required></md-datepicker>
+                    </div>
+                    <span class="label_availability" style="margin-left: 1em;">À</span>
+                    <mdp-time-picker mdp-auto-switch="true" ng-model="pex.exam.exam_date"
+                                     required></mdp-time-picker>
+                </div>
+                <div layout="row" class="little-padding-left">
+                    <span class="label_availability">{{'at_place' | translate}}</span>
+                    <md-input-container class="md-block md-input-container-3" flex="25">
+                        <md-select class="adjust-select" ng-model="pex.exam.driving_exam_place_id"
+                                   placeholder="{{'exam_place' | translate}}">
+                            <md-option ng-value="i.user.id_driving_exam_place"
+                                       ng-repeat="i in pex.examPlaces">
+                                {{i.name}} - {{i.city}} ({{i.zip_code}})
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <span class="label_availability" style="margin-left: 3em;">{{'with_status' | translate}}</span>
+                    <md-input-container class="md-block md-input-container-3" flex="30">
+                        <md-select class="adjust-select" ng-model="pex.exam.status_exam_id"
+                                   placeholder="{{'status' | translate}}" required>
+                            <md-option ng-value="i.id_status_exam"
+                                       ng-repeat="i in $root.refs.status_exam">
+                                {{i.label}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row" class="little-padding-left">
+                    <span class="label_availability">{{'with_instructor' | translate}}</span>
+                    <md-input-container class="md-block md-input-container-3" flex="25">
+                        <md-select class="adjust-select" ng-model="pex.exam.driving_instructor_id"
+                                   placeholder="{{'instructor' | translate}}">
+                            <md-option ng-value="i.user.id_user"
+                                       ng-repeat="i in pex.instructors">
+                                {{i.user.firstname}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <span class="label_availability" style="margin-left: 3em;">{{'and_with_car' | translate}}</span>
+                    <md-input-container class="md-block md-input-container-3" flex="30">
+                        <md-select class="adjust-select" ng-model="pex.exam.driving_car_id"
+                                   placeholder="{{'car' | translate}}">
+                            <md-option ng-value="i.id_driving_car"
+                                       ng-repeat="i in pex.cars">
+                                {{i.brand}} {{i.model}} ({{i.color}}) - {{i.matriculation}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row" class="little-padding-left">
+                    <md-input-container class="md-block md-input-container-3" flex="auto">
+                        <label>{{'comment' | translate}}</label>
+                        <textarea class="withscroll withlittleheight" name="comment" ng-model="pex.exam.comment" md-maxlength="1000"
+                                  rows="3" md-select-on-focus></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="pex.cancel()" class="md-warn md-hue-1 md-raised">
+                {{'cancel' | translate}}
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="pex.hide()" ng-disabled="pex.exam_form.$invalid" class="md-primary md-hue-1 md-raised">
+                {{pex.saveLabel}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

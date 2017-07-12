@@ -1,0 +1,48 @@
+<div layout="column" flex>
+    <md-toolbar class="md-primary md-hue-1">
+        <md-list class="menu-item">
+            <div flex="15" class="inset">
+                <img src="img/logo_TOTAL.png" width="50%">
+                <span><b>{{'hpg' | translate}}</b></span>
+            </div>
+            <md-item flex-offset="5">
+                <md-item-content ui-sref="app.hpg" md-ink-ripple layout="row" layout-align="start center"
+                                 ng-class="{'active': ('app.hpg-edit' | includedByState)
+                                 || ('app.hpg' | includedByState)}">
+                    <div class="inset">
+                        {{'hpg_profiles' | translate}}
+                    </div>
+                </md-item-content>
+            </md-item>
+            <md-item flex-offset="5">
+                <md-item-content ui-sref="app.instructor" md-ink-ripple layout="row" layout-align="start center"
+                                 ui-sref-active="active">
+                    <div class="inset">
+                        {{'hpg_lunches' | translate}}
+                    </div>
+                </md-item-content>
+            </md-item>
+            <md-item flex-offset="5">
+                <md-item-content ui-sref="app.lesson" ui-sref-active="active" md-ink-ripple layout="row"
+                                 layout-align="start center">
+                    <div class="inset">
+                        {{'dashboard' | translate}}
+                    </div>
+                </md-item-content>
+            </md-item>
+            <md-item flex-offset="5">
+                <md-item-content ui-sref="app.lesson" ui-sref-active="active" md-ink-ripple layout="row"
+                                 layout-align="start center">
+                    <div class="inset">
+                        {{'manage_users' | translate}}
+                    </div>
+                </md-item-content>
+            </md-item>
+            <div flex="15" flex-offset="5" class="inset">
+                {{($root.currentUser.firstname | capitalizeFirstLetter) + ' ' + ($root.currentUser.lastname | capitalizeFirstLetter)}}
+            </div>
+            <ng-md-icon class="logout" ng-click="menu.logout()" icon="power_settings_new"></ng-md-icon>
+        </md-list>
+    </md-toolbar>
+    <ui-view class="relative" flex role="main"></ui-view>
+</div>

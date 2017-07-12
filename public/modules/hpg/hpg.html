@@ -1,0 +1,40 @@
+<div class="col-md-4 mes-informations" style="">
+    <form>
+        <div class="form-group">
+            <label for="nom" class="sr-only">Nom</label>
+            <input ng-model="hpgCtrl.user.name" style="font-size: 12px;" type="text" class="form-control" id="nom" placeholder="Nom">
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="sr-only">Email *</label>
+            <input ng-model="hpgCtrl.user.email" style="font-size: 12px;" type="text" class="form-control" id="email" placeholder="Email *">
+        </div>
+
+        <div class="form-group">
+            <label for="age" class="sr-only">Age *</label>
+            <input ng-model="hpgCtrl.user.age" style="font-size: 12px;" type="text" class="form-control" id="age" placeholder="Age *">
+        </div>
+        <div class="form-group">
+            <label for="sexe" class="sr-only">Sexe *</label>
+            <input ng-model="hpgCtrl.user.sexe" style="font-size: 12px;" type="text" class="form-control" id="sexe" placeholder="Sexe *">
+        </div>
+        <div class="form-group">
+            <label for="ville" class="sr-only">Ville de résidence *</label>
+            <input ng-model="hpgCtrl.user.ville" style="font-size: 12px;" type="text" class="form-control" id="ville" placeholder="Ville de résidence *">
+        </div>
+        <div class="form-group">
+            <label for="pays" class="sr-only">Pays de résidence *</label>
+            <input ng-model="hpgCtrl.user.pays" style="font-size: 12px;" type="text" class="form-control" id="pays" placeholder="Pays de résidence *">
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-click="hpgCtrl.save()" class="btn" style="color: #fff;background-color: #ae3925; border-radius: 0px;"> Valider ma proposition</button>
+        </div>
+    </form>
+</div>
+<div class="col-md-4 mes-informations" style="">
+    <div ng-repeat="user in hpgCtrl.users">
+        <div>
+            {{user.name}} - {{user.age}}
+        </div>
+    </div>
+</div>

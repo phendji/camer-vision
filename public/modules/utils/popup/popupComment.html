@@ -1,0 +1,33 @@
+<md-dialog aria-label="Lesson" flex="80">
+    <form ng-cloak name="ps.comment_form">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'editing_comment' | translate}} {{ps.student}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ps.cancel()">
+                    <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="row" class="little-padding-left">
+                    <md-input-container class="md-block md-input-container-3" flex="auto">
+                        <label>{{'comment' | translate}}</label>
+                        <textarea class="withscroll withmidheight" name="comment" ng-model="ps.comment" md-maxlength="1000"
+                                  rows="5" md-select-on-focus></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="ps.cancel()" class="md-warn md-hue-1 md-raised">
+                {{'cancel' | translate}}
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="ps.hide()" ng-disabled="ps.comment_form.$invalid" class="md-primary md-hue-1 md-raised">
+                {{'save' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
