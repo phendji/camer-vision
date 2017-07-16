@@ -1,42 +1,38 @@
 /* proposition controllers*/
 var app = angular.module('proposition', []);
 
-app.controller('propositionCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+app.controller('propositionCtrl', ['$scope', '$rootScope', 'mainServices', function($scope, $rootScope, mainServices) {
+
+    $scope.saveUser = function() {
+        $scope.user.id_proposition = "12";
+        mainServices.saveUser($scope.user, function(response){
+            $('#myModal').modal('hide');
+            switch (response.status){
+                case 200:
+                    $scope.managerErrorMsgs("sucessmsg", "Merci de votre participation, vos données ont été bien enregistrées.");
+                break;
+
+                default:
+                    $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+            }
+        })
+    };
+
+    $scope.saveProposition = function() {
+        $scope.proposition.id_user = 0;
+        mainServices.saveProposition($scope.proposition, function(response){
+           $('#myModal').modal('show');
+            switch (response.status){
+                case 200:
+                    $('#myModal').modal('show');
+                break;
+
+                default:
+                    $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+            }
+        })
+
+    };
+
+    //console.log("fooBar : ", $scope.listSousRubrique);
 }]);
-
-/*
-(function () {
-    'use strict';
-
-    angular
-        .module('home.controller')
-        .controller('homeCtrl', homeCtrl);
-
-    function HpgCtrl(hpgService) {
-        var vm = this;
-        vm.user = {};
-        vm.users = [];
-        vm.save = save;
-
-        activate();
-
-        function activate(){
-            list();
-        }
-
-        function save() {
-            vm.promiseHpgs = hpgService.save(vm.user).then(function (response) {
-                vm.users = response;
-            }, function (err) {
-                // Toaster handle error
-            });
-        }
-
-        function list(){
-            hpgService.list().then(function (response) {
-               vm.users =  response;
-            });
-        }
-    
-})();
-}*/

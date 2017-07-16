@@ -14,6 +14,7 @@ var app = angular.module('kmerApp',
                                   'explorModule',
                                   'authModule',*/
                                   'kmerApp.controllers',
+                                  'kmerApp.services',
                                   'ngRoute',
                                   'home',
                                   'who',
@@ -22,6 +23,22 @@ var app = angular.module('kmerApp',
                                   'cameroun',
                                   'rubrique'
                               	]);
+
+/*
+  * Définition des classes pour les types de messages d'erreur.
+  * @Return void
+  * @Auteur : phendji
+  */
+$.notify.addStyle('managermsgs', {
+  html: "<div><span data-notify-text/></div>",
+  classes: {
+    base: {},
+    errormsg: {},
+    sucessmsg: {},
+    infomsg: {},
+    warningmsg: {}
+  }
+});
 
 /*
  * Correspondance views, controller and Url.

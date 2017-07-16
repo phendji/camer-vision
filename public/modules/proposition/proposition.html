@@ -1,11 +1,194 @@
 <div class="page-who">
     <div class="row">
         <div class="col-md-12 describe">
-            Formulaire de proposition
+        	<div class="col-md-7" style="margin-bottom: 30px;">
+        		<div class="">
+        			<p>
+        				Formulez votre proposition en deux temps : énoncez le problème qui vous tient à cœur (50 mots max), puis proposez votre solution (250 mots max). Le problème doit être d’intérêt national ou au moins régional.
+        			</p>
+        			<p>
+						Classez votre proposition dans une des thématiques définies, et formulez une seule proposition par thématique. Une fois validée, votre proposition sera postée par l’équipe de Camer Vision qui se sera assurée que votre proposition respecte la charte de Camer Vision. Soyez synthétique mais ne restez pas 
+        			</p>
+        		</div>
+
+        		<div class="col-md-12">
+        			<form name="form_proposition" ng-submit="saveProposition()" role="form">
+	        			<div style="margin-bottom: 15px;margin-top: 20px;">
+		        			<label> Choisir une sous rubrique *: </label>
+		        			<select
+		        				required
+		        				style="width: 100%; height: 24px;"
+		        				class="selectpicker"
+		        				ng-model="proposition.id"
+		        				ng-options="sousRubrique.id as sousRubrique.titre for sousRubrique in listSousRubrique">
+		        			</select>
+		        		</div>
+		        		<div style="margin-bottom: 15px;">
+		        			<label> Enonce du problème (max 50 caratères) *</label>
+		        			</br>
+		        			<textarea ng-model="proposition.problematique" name="problematique" rows="3" style="width: 100%" required></textarea>
+		        		</div>
+		        		<div style="margin-bottom: 15px;">
+		        			<label> Proposer une solution (max 250 caratères) *</label>
+		        			</br>
+		        			<textarea ng-model="proposition.solution" rows="3" name="solution" style="width: 100%" required></textarea>
+		        		</div>
+		        		<div style="margin-top: 10px;">
+		        			<div class="col-md-10" style="font-style: italic; font-size: 9px; color: #ae3925;">(*) : champs obligatoires </div>
+		        			<div class="col-md-2">
+		        				<!--<button type="button" class="btn" data-toggle="modal" data-target="#myModal">Valider</button>-->
+		        				<button  type="submit" ng-disabled="form_proposition.$invalid" class="btn" >Valider</button>
+		        			</div>
+		        		</div>
+		        	</form>
+	        	</div>
+        	
+        	</div>
+        	<div class="col-md-5" style="margin-bottom: 30px;">
+        		<div class="col-md-12" style="margin-bottom: 20px">
+        			<p style="font-weight: 700; color: #ae3925;" >LES PLUS RECENTES<p>
+        		</div>
+
+        		<a href class="card">
+		            <div class="col-sm-12 col-md-12">
+		                <div class="thumbnail">
+		                    <div class="caption">
+		                        <div class="theme">
+		                            <h5>
+		                                Système politique / Institutions / Administation / Société civile
+		                            </h5>
+		                        </div>
+		                        <div class="proposition">
+		                            <div class="probleme">
+		                                Sed ut perspiciatis unde omnis iste natus error si.
+		                            </div>
+		                            <div class="solution">
+		                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt di.
+		                            </div>
+		                        </div>
+		                        <div class="details">
+		                            <div class="author">
+		                                <span>by Hollande </span>
+		                            </div>
+		                            <div class="notify">
+		                                <span class="glyphicon glyphicon-eye-open"></span>
+		                                <span>56</span>
+		                            </div>
+		                            <div class="notify">
+		                                <span class="glyphicon glyphicon-thumbs-up"></span>
+		                                <span>0</span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    
+		                </div>
+		            </div>
+		        </a>
+
+		        <a href class="card">
+		            <div class="col-sm-12 col-md-12">
+		                <div class="thumbnail">
+		                    <div class="caption">
+		                        <div class="theme">
+		                            <h5>
+		                                Système politique / Institutions / Administation / Société civile
+		                            </h5>
+		                        </div>
+		                        <div class="proposition">
+		                            <div class="probleme">
+		                                Sed ut perspiciatis unde omnis iste natus error si.
+		                            </div>
+		                            <div class="solution">
+		                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt di.
+		                            </div>
+		                        </div>
+		                        <div class="details">
+		                            <div class="author">
+		                                <span>by Hollande </span>
+		                            </div>
+		                            <div class="notify">
+		                                <span class="glyphicon glyphicon-eye-open"></span>
+		                                <span>56</span>
+		                            </div>
+		                            <div class="notify">
+		                                <span class="glyphicon glyphicon-thumbs-up"></span>
+		                                <span>0</span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    
+		                </div>
+		            </div>
+		        </a>
+        	</div>
         </div>
     </div>
 </div>
 
 <div class="fix-btn">
     <a href><img src="img/btn-proposition.png" alt="button proposition"/></a>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Mes informations</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+      		<form name="form" ng-submit="saveUser()" role="form">
+		      	<div class="col-md-6 col-sm-6">
+		            <div> 
+		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="nom" class="" ng-model="user.nom" placeholder="Nom" required/>
+		            </div>
+		            
+		            <div> 
+		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="prenom" class="" ng-model="user.prenom" placeholder="Prénom" required/>
+		            </div>
+
+		            <div> 
+		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="age" class="" ng-model="user.age" placeholder="Age" required/>
+		            </div>
+		            <div> 
+		                <select 
+		                	class="col-md-12 col-sm-12 col-xs-12"
+		                	ng-model="user.sexe"
+		                	required>
+		                	<option>Masculin</option>
+		                	<option>Féminin</option>
+		                </select>
+		            </div>
+		      	</div>
+		      	<div class="col-md-6 col-sm-6">
+		      		<div> 
+		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="email" class="" ng-model="user.email" placeholder="email" required/>
+		            </div>
+
+		      		<div> 
+		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="ville" class="" ng-model="user.ville" placeholder="Ville de résidence" required/>
+		            </div>
+		            
+		            <div> 
+		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="pays" class="" ng-model="user.pays" placeholder="Pays de résidence" required/>
+		            </div>
+		      	</div>
+		      	<div class="col-md-12">
+		      		<div class="col-md-7" style="font-style: italic; font-size: 10px; float: left; color: #ae3925">
+		      			Tous les champs sont obligatoires
+		      		</div>
+			      	<div class="form-actions col-md-5">
+	                    <button type="submit" ng-disabled="form.$invalid" class="btn"  style="float: right;">Valider mes informations</button>
+	                </div>
+	            </div>
+	      	</form>
+	    </div>
+      </div>
+    </div>
+
+  </div>
 </div>

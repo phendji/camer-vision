@@ -1,8 +1,16 @@
 /* rubrique controllers*/
 var app = angular.module('rubrique', []);
 
-app.controller('rubriqueCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
-    console.log("rubriqueCtrl");
+app.controller('rubriqueCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+    
+    //Debug : console.log("rubriqueCtrl");
+    var urlLocation = $location.path();
+    var arrayOfUrl = splitUrlLocation(urlLocation);
+    if( arrayOfUrl && arrayOfUrl.length == 3 && arrayOfUrl[1] == "sous-rubrique"){
+        var idSousRubrique = arrayOfUrl[2]-1;
+        $scope.sousRubrique = $scope.listSousRubrique[idSousRubrique];
+    }
+
 }]);
 
 /*

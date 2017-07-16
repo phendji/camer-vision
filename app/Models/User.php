@@ -13,6 +13,6 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'pays', 'ville', 'age', 'sexe'
+        'id_proposition','nom', 'prenom', 'age', 'sexe', 'pays', 'ville', 'email'
     ];
 }
