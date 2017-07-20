@@ -4,7 +4,6 @@ var app = angular.module('proposition', []);
 app.controller('propositionCtrl', ['$scope', '$rootScope', 'mainServices', function($scope, $rootScope, mainServices) {
 
     $scope.saveUser = function() {
-        $scope.user.id_proposition = "12";
         mainServices.saveUser($scope.user, function(response){
             $('#myModal').modal('hide');
             switch (response.status){
@@ -19,11 +18,12 @@ app.controller('propositionCtrl', ['$scope', '$rootScope', 'mainServices', funct
     };
 
     $scope.saveProposition = function() {
-        $scope.proposition.id_user = 0;
         mainServices.saveProposition($scope.proposition, function(response){
            $('#myModal').modal('show');
             switch (response.status){
                 case 200:
+                    $scope.user = {};
+                    $scope.user.id_proposition = response.data.id;
                     $('#myModal').modal('show');
                 break;
 

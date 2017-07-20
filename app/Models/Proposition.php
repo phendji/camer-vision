@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Proposition extends Model
 {
 
     /**
@@ -13,6 +13,6 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'nom', 'prenom', 'age', 'sexe', 'pays', 'ville', 'email'
+        'id_user','id_theme', 'problematique', 'solution'
     ];
 }

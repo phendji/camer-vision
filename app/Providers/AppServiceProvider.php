@@ -3,10 +3,7 @@
 namespace App\Providers;
 
 use App\Services\UserService;
-use App\Services\ImportServices\ImportCurrentDataSheetService;
-use App\Services\ImportServices\ImportFormationHistorySheetService;
-use App\Services\ImportServices\ImportJobHistorySheetService;
-use App\Services\ImportServices\ImportService;
+use App\Services\PropositionService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -42,5 +39,13 @@ class AppServiceProvider extends ServiceProvider
             return new UserService();
         });
         $this->app->alias('user', UserService::class);
+
+         /**
+         * Proposition service
+         */
+        $this->app->singleton('proposition', function ($app) {
+            return new PropositionService();
+        });
+        $this->app->alias('proposition', PropositionService::class);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use App\Models\Proposition;
 
 /**
  * Created by PhpStorm.
@@ -34,6 +35,11 @@ class UserService
             $user->update($data);
         } else {
             $user = User::create($data);
+            if (isset($data['id_proposition'])){
+                $proposition = Proposition::find($data['id_proposition']);
+                $proposition->id_user = $user['id'];
+                $proposition->save();
+            }
         }
         return $user;
     }
