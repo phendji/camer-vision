@@ -35,7 +35,7 @@ var remoteApi = location.origin + '/api';
 var LIST_DES_SOUS_RUBRIQUES = [
 	{ 
 		"id": 1,
-		"titre": "Tourisme / Promotion Culturelle",
+		"titre": "Tourisme / Promotion Culturelle / Sports",
 		"description": "Le tourisme et la promotion du patrimoine culturel sont-ils suffisamment organisés au Cameroun pour devenir un levier de développement ? Les prestations hôtelières sont-elles à la hauteur ? La politique des visas est-elle adaptée ? Comment mettre en valeur les atouts naturels et culturels du Cameroun auprès des Camerounais et des étrangers ?"
 	},
 	{
@@ -60,12 +60,12 @@ var LIST_DES_SOUS_RUBRIQUES = [
 	},
 	{ 
 		"id": 6,
-		"titre": "Construire le Vivre-ensemble / Mémoire / Modèle de société / Nationalité",
+		"titre": "Le Vivre-ensemble / Bilinguisme / Mémoire / Modèle de société / Nationalité / Diaspora",
 		"description": "Les Camerounais sont-ils heureux de vivre ensemble ? Depuis les indépendances, le Cameroun a-t-il créé les conditions du vivre ensemble entre les ethnies, les groupes linguistiques, les régions ? Les langues nationales occupent-elles la place qui doit être la leur ? Qui sont les héros du Cameroun ? Comment les Camerounais entretiennent-ils leur mémoire collective ? Quel modèle de société pour le Cameroun ? Quelles règles du jeu pour favoriser la cohésion nationale ? Quelles conditions pour que le Cameroun vive un bilinguisme FR/EN respectueux de chacun ? La loi sur la nationalité, notamment l’interdiction de la double nationalité, est-elle favorable à la cohésion nationale ? La diaspora fait-elle partie de la communauté nationale ?"
 	},
-	{ 
+	{
 		"id": 7,
-		"titre": "Education / Enseignement supérieur / Formation professionnelle",
+		"titre": "Education / Enseignement supérieur / Recherche / Formation professionnelle",
 		"description": "Quel système éducatif pour les Camerounais ? Le système éducatif national forme les Camerounais dans quel but ? Le système éducatif camerounais est-il performant ? Que cache la tendance à l’émigration des étudiants Camerounais ? Quelle est la valeur du BAC camerounais ? Quelle place pour les langues nationales ? Les enseignants camerounais sont-ils heureux ? Le recrutement, la formation, le traitement et l’organisation de la carrière des enseignants sont-ils adaptés ? Le recrutement et la formation des élèves et étudiants sont-ils efficaces ? Les recrutements sur concours sont-ils équitables ? La recherche universitaire est-elle suffisamment encouragée et mise en valeur ? La coopération entre l’école/l’université et le secteur privé est-elle de nature à favoriser l’employabilité ?"
 	},
 	{ 
@@ -95,7 +95,7 @@ var LIST_DES_SOUS_RUBRIQUES = [
 	},
 	{ 
 		"id": 13,
-		"titre": "Energie électrique / Energies renouvelables / Infrastructures énergétiques",
+		"titre": "Energie électrique / Infrastructures énergétiques / Adduction d’eau",
 		"description": "Le Cameroun est-il sorti des délestages d’électricité ? Le modèle d’affermage d’électricité et d’eau est-il adapté ? Que faut-il pour que les besoins des Camerounais en eau et en énergie électrique soient satisfaits ? Comment couvrir les besoins en zones rurales ? Quel rôle pour les collectivités territoriales décentralisées ? Comment l’entrepreneuriat privé peut-il contribuer à satisfaire les besoins ? Comment soutenir les investissements individuels ?"
 	},
 	{ 

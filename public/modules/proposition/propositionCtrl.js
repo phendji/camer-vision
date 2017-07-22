@@ -18,6 +18,8 @@ app.controller('propositionCtrl', ['$scope', '$rootScope', 'mainServices', funct
     };
 
     $scope.saveProposition = function() {
+        $scope.proposition.status = false;  // Par defaut une proposition est au status 0 : Dépublier
+        console.log("$scope.proposition : ", $scope.proposition);
         mainServices.saveProposition($scope.proposition, function(response){
            $('#myModal').modal('show');
             switch (response.status){

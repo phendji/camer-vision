@@ -71,11 +71,6 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
       templateUrl: 'modules/cameroun/cameroun.html'
     })
 
-    .when('/documentation', {
-      controller: 'camerounCtrl',
-      templateUrl: 'modules/cameroun/documentation.html'
-    })
-
     .when('/sous-rubrique/:id', {
       controller: 'rubriqueCtrl',
       templateUrl: 'modules/rubrique/rubrique.html'

@@ -1,4 +1,4 @@
-/* who controllers*/
+/* cameroun controllers*/
 var app = angular.module('cameroun', []);
 
 app.controller('camerounCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {

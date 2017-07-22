@@ -248,7 +248,8 @@ div.container.header{
 	}
 }
 
-form > div > div input{
+form > div > div input,
+form > div > div select{
 	margin-bottom: 16px;
 }
 

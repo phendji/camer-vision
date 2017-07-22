@@ -141,6 +141,9 @@
       </div>
       <div class="modal-body">
       	<div class="row">
+      		<div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px;">
+      			Camer Vision certifie que vos informations ne seront utilisées que dans le cadre de la présente initiative citoyenne et ne seront en aucun cas cédées à un autre organisme.
+      		</div>
       		<form name="form" ng-submit="saveUser()" role="form">
 		      	<div class="col-md-6 col-sm-6">
 		            <div> 
@@ -175,6 +178,11 @@
 		            
 		            <div> 
 		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="pays" class="" ng-model="user.pays" placeholder="Pays de résidence" required/>
+		            </div>
+		            <div class="checkbox">
+					    <label>
+					      <input type="checkbox" ng-model="user.newsletter"> s'abonner à la newsletter
+					    </label>
 		            </div>
 		      	</div>
 		      	<div class="col-md-12">
