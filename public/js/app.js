@@ -20,6 +20,7 @@ var app = angular.module('kmerApp',
                                   'who',
                                   'horizons',
                                   'proposition',
+                                  'admin',
                                   'cameroun',
                                   'rubrique'
                               	]);
@@ -79,6 +80,11 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
     .when('/', {
       controller: 'homeCtrl',
       templateUrl: 'modules/home/home.html'
+    })
+
+    .when('/odTgud6-admin', {
+      controller: 'adminCtrl',
+      templateUrl: 'modules/admin/admin.html'
     })
 
     .otherwise({ redirectTo: '/404' });
