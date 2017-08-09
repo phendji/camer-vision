@@ -1,11 +1,26 @@
 <div class="page-horizons">
-    <div class="row">
-        <div class="col-md-12 describe">
-            Page des propositions horizons 2035
-        </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="col-xs-12 describe">
+        <table class="table table-striped">
+          <tr ng-repeat="sousRubrique in listSousRubrique track by sousRubrique.id">
+            <td>
+              <a href="#/sous-rubrique/{{sousRubrique.id}}">
+                <div class="col-xs-11"> {{sousRubrique.titre}} </div>
+                <div class="col-xs-1">
+                  <div class="nb-proposition">
+                    12 
+                  </div>
+                </div>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="fix-btn">
-    <a href><img src="img/btn-proposition.png" alt="button proposition"/></a>
+  <a href="#/ma-proposition"><img src="img/btn-proposition.png" alt="button proposition"/></a>
 </div>

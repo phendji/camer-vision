@@ -31,5 +31,5 @@ Route::group(['prefix' => 'users'], function () {
  */
 Route::group(['prefix' => 'propositions'], function () {
     Route::post('/', 'PropositionController@store');
-   // Route::get('/', 'UserController@index');
+    Route::get('/', 'PropositionController@index');
 });

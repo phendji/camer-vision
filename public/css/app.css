@@ -13,7 +13,14 @@ body{
 
 a{
 	text-decoration: none;
+  cursor: pointer;
+  color: #000;
 }
+
+a:hover{
+  color: #ae3925;
+}
+
 
 p{
 	margin: 0px 0px 8px;
@@ -106,17 +113,28 @@ div.container.home{
 }
 
 @media screen and (max-width: 768px) {
-    .deco-header {
-        display: none;
-    }
+  .deco-header {
+      display: none;
+  }
 
-    .title-theme > span{
-    	line-height: 0px !important;
-    }
+  .title-theme > span{
+  	line-height: 0px !important;
+  }
 
-    .plus-theme{
-    	margin-top: 3px !important;
-    }
+  .plus-theme{
+  	margin-top: 3px !important;
+  }
+
+  .content-page{
+    border: none !important;
+  }
+  .docpartner{
+    padding: 0px !important;
+  }
+
+  .proposition-recents > a.card > div{
+    padding: 0px;
+  }
 }
 
 @media screen and (max-width: 336px) {
@@ -153,10 +171,9 @@ div.container.home{
 	margin: 40px 0px;
 }
 
-
 /* @Card of proposition*/
 
-a.card:hover .theme h5{
+.theme h5:hover{
 	color: #ae3925;
 }
 
@@ -222,6 +239,50 @@ div.container.header{
 }
 
 
+/*Page le cameroun*/
+.content-page{
+  border-right: 1px solid #ddd;
+}
+
+.doc-title > p{
+  font-weight: 700;
+  color: #ae3925;
+}
+
+.documents table tr td{
+  padding: 5px 0px;
+  text-align: left;
+}
+
+.partner{
+  margin-top: 20px;
+}
+
+/*Page admin */
+#dataTables-proposition tr{
+  cursor: pointer;
+}
+
+.publier{
+  color: green;
+}
+
+.depublier{
+  color: red;
+}
+
+/*Page proposition horizon 2035*/
+.nb-proposition{
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border:1px solid #ddd;
+  border-radius: 10px;
+  padding-top: 2px;
+  text-align: center;
+  color: #ae3925;
+}
+
 /* @Override less css modal*/
 .modal-content{
 	border-radius: 0px;
@@ -244,7 +305,7 @@ div.container.header{
 
 @media (min-width: 768px){
 	.modal-dialog {
-	    margin: 122px auto;
+	  margin: 122px auto;
 	}
 }
 

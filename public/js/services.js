@@ -28,8 +28,19 @@ app.factory('mainServices', ['$http', '$rootScope',  function($http, $rootScope)
         }, function errorCallback(response) {
         callback(response)
       });
-    }
+    },
 
+    getListProposition: function(callback){
+      $http({
+        method: 'GET',
+        url: remoteApi + "/propositions"
+      }).then(function successCallback(response) {
+        //Appel asynchrone, quand la réponse est success
+        callback(response);
+        }, function errorCallback(response) {
+        callback(response)
+      });
+    }
  	}
 
 }]);

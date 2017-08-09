@@ -2,6 +2,7 @@
 var app = angular.module('horizons', []);
 
 app.controller('horizonsCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+    console.log("$scope.listSousRubrique : ", $scope.listSousRubrique);
 }]);
 
 /*

@@ -1,13 +1,31 @@
 /* main controllers*/
 var app = angular.module('kmerApp.controllers', []);
 
-app.controller('mainCtrl', ['$scope', function($scope) {
+app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($scope, $rootScope, mainServices) {
 
-  $('ul.nav li.dropdown').hover(function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-  }, function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-  });
+  //Liste des sous rubriques
+  $scope.listSousRubrique = LIST_DES_SOUS_RUBRIQUES;
+
+  /*
+   * Liste des propositions.
+   * @Return array of object
+   * @Auteur : phendji
+   */
+  $scope.listProposition = function() {
+    mainServices.getListProposition(function(response){
+      //console.log("response : ", response);
+      switch (response.status){
+        case 200:
+          $scope.listDesPropositions = response.data;
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }
+    });
+  };
+
+  $scope.listProposition();
 
   /*
    * Gestion des messages d'erreur.
@@ -27,6 +45,10 @@ app.controller('mainCtrl', ['$scope', function($scope) {
     });
   }
 
-  $scope.listSousRubrique = LIST_DES_SOUS_RUBRIQUES;
+  $('ul.nav li.dropdown').hover(function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+  }, function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+  });
   
 }]);
