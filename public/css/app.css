@@ -21,12 +21,27 @@ a:hover{
   color: #ae3925;
 }
 
-
 p{
 	margin: 0px 0px 8px;
 }
 
+.cmv-color{
+  color: #ae3925;
+}
+
+.bloc-txt{
+  margin-top: 20px;
+}
+
+.title-page{
+  margin-bottom: 26px;
+}
 /* @Override */
+
+h3, h4, h5, h6{
+  margin: 0px;
+}
+
 .btn{
 	background-color: #ae3925;
 	color: #ffffff;
@@ -159,7 +174,9 @@ div.container.home{
 .page-who,
 .page-horizons,
 .page-cameroun,
-.page-rubrique{
+.page-rubrique,
+.page-charte,
+.page-contacter{
 	text-align: justify;
 }
 
@@ -167,7 +184,9 @@ div.container.home{
 .page-who .describe,
 .page-horizons .describe,
 .page-cameroun .describe,
-.page-rubrique .describe{
+.page-rubrique .describe,
+.page-charte .describe,
+.page-contacter .describe{
 	margin: 40px 0px;
 }
 
@@ -230,14 +249,14 @@ div.container.header{
 .fix-btn {
   position: fixed;
   top: 50%;
-  margin-left: -55px;
+  margin-left: -90px;
+  z-index: 1;
 }
 
 /*Pages des propositions d'une rubrique*/
 .title{
 	margin: 26px 0px;
 }
-
 
 /*Page le cameroun*/
 .content-page{
@@ -263,12 +282,22 @@ div.container.header{
   cursor: pointer;
 }
 
+.publier,
+.depublier,
+.publier:hover,
+.depublier:hover{
+  text-decoration: none;
+  color: white;
+}
+
 .publier{
-  color: green;
+  background-color: #449D44;
+  color: white;
 }
 
 .depublier{
-  color: red;
+  background-color: #ae3925;
+  color: white;
 }
 
 /*Page proposition horizon 2035*/
@@ -323,7 +352,7 @@ form > div > div select{
 
 /* css plugin notify */
 .notifyjs-arrow{
-    display: none !important;
+   display: none !important;
 }
 
 .notifyjs-wrapper,
@@ -368,3 +397,43 @@ form > div > div select{
     background-color: #F0AD4E;
     opacity: 0.60;
 }
+
+/* Navigation flottante */
+.nav-flottant{
+  list-style: none;
+}
+
+.nav-flottant li a i {
+  background-color: #ae3925;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 17px;
+}
+
+.nav-flottant li a i:hover {
+  background-color: #ffffff;
+  color: #ae3925;
+}
+
+
+@media screen and (max-width: 868px) {
+  .fix-btn {
+    margin-left: -50px;
+    z-index: 1;
+  }
+
+  .nav-flottant li a i {
+    line-height: 20px;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+  }
+}
+
+/* Tooltip */
+

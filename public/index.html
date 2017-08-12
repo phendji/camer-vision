@@ -99,6 +99,8 @@
 <script type="text/javascript" src="bower_components/notify/notify.js"></script>
 <script type="text/javascript" src="bower_components/notify/addNotifyStyle.js"></script>
 
+
+
 <!-- DataTables JavaScript -->
 <script src="bower_components/datatables/js/jquery.dataTables.min.js"></script>
 <script src="bower_components/datatables-plugins/dataTables.bootstrap.min.js"></script>
@@ -112,6 +114,7 @@
 
 <script src="js/controllers.js"></script>
 <script src="js/services.js"></script>
+<script src="js/directives.js"></script>
 
 <!--
 <script src="js/routes.js"></script>
@@ -145,7 +148,11 @@
 <script src="modules/admin/admin.js"></script>
 <script src="modules/admin/adminCtrl.js"></script>
 
-
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+</script>
 <!--
 <script src="js/run.js"></script>
 

@@ -35,7 +35,7 @@
                                       <td>{{proposition.id_user}}</td>
                                       <td>{{proposition.problematique}}</td>
                                       <td>{{proposition.solution}}</td>
-                                      <td ng-class="proposition.status == 0 ? 'depublier' : 'publier' ">{{proposition.status  == '0' ? "Dépublier" : "Publier"}}</td>
+                                      <td>{{proposition.status  == '0' ? "Dépublier" : "Publier"}}</td>
                                       <td>{{proposition.created_at}}</td>
                                     </tr>                           
 	                                </tbody>
@@ -70,20 +70,17 @@
       	<div class="row">
       		<div class="col-sm-12" style="margin-bottom: 20px">
       			<p class="" style="color: #ae3925">Enoncé du problème :</p>
-      			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor
+            <textarea ng-model="modal.problematique" name="problematique" rows="3" style="width: 100%"></textarea>
       		</div>
       		<div class="col-sm-12" style="margin-bottom: 20px">
       			<p class="" style="color: #ae3925">Solution proposée :</p>
-      			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.eget dolor.
+            <textarea ng-model="modal.solution" name="solution" rows="3" style="width: 100%"></textarea>
       		</div>
       		<div class="col-sm-12" style="margin-bottom: 20px">
-      			<label class="checkbox-inline">
-				      <input type="checkbox" value="">Publier
-				    </label>
-
-				    <label class="checkbox-inline">
-				      <input type="checkbox" value="">Dépublier
-				    </label>
+            <a ng-class="modal.status == false ? 'publier' : 'depublier'" ng-model="modal.status" ng-click="modal.status = !modal.status" style="width: 60px; height: 20px; padding: 6px 10px;">
+              {{modal.status == false ? 'Publier' : 'Dépublier'}}
+            </a>
+            <button  style="float: right;" ng-click="updatePropositionByAdmin()" class="btn" >Enregistrer</button>
       		</div>
       	</div>
       </div>

@@ -1,46 +1,15 @@
 'use strict';
 
 /* Directives angularjs */
-var app = angular.module('linsigApp.directives', []);
+var app = angular.module('kmerApp.directives', []);
 
-/* Directive Attribute d'une balise html, appel du template du bloc recherche
+/* Directive Attribute d'une balise html, appel du template pour charger le bloc menu flottant
  * @Return templateUrl <string>
  * @Auteur : phendji
  */
-app.directive('searchTemplate', function () {
+app.directive('navFlottant', function () {
     return {
-        templateUrl: "components/search/templates/home.html"
-    };
-});
-
-/* Directive Attribute d'une balise html, appel du template du bloc navigation
- * @Return templateUrl <string>
- * @Auteur : phendji
- */
-app.directive('navTemplate', function () {
-    return {
-        templateUrl: "components/nav/templates/home.html"
-    };
-});
-
-/* Directive Attribute d'une balise html, appel du template du bloc authentification
- * @Return templateUrl <string>
- * @Auteur : phendji
- */
-app.directive('authenTemplate', function () {
-    return {
-        templateUrl: "components/authen/templates/home.html"
-    };
-});
-
-
-/* Directive Attribute d'une balise html, appel du template du bloc exploreur réseau
- * @Return templateUrl <string>
- * @Auteur : phendji
- */
-app.directive('explorTemplate', function () {
-    return {
-        templateUrl: "components/explor/templates/home.html"
+        templateUrl: "shared/nav-flottant.html"
     };
 });
 
@@ -62,33 +31,6 @@ app.directive('myEnter', function () {
         });
     };
 });
-
-/* Directive Attribute, lancer le spinner sur les requêtes
- * @Return function
- * @Auteur : phendji
- */
-app.directive('usSpinner',   ['$http', '$rootScope' ,function ($http, $rootScope){
-    return {
-        link: function (scope, elm, attrs)
-        {
-            if(attrs.$attr.usSpinnerStandalone) return;
-            $rootScope.spinnerActive = false;
-            scope.isLoading = function () {
-                return $http.pendingRequests.length > 0;
-            };
-
-            scope.$watch(scope.isLoading, function (loading)
-            {
-                $rootScope.spinnerActive = loading;
-                if(loading){
-                    elm.removeClass('ng-hide');
-                }else{
-                    elm.addClass('ng-hide');
-                }
-            });
-        }
-    };
-}]);
 
 /* Directive Attribute, afficher en majuscule
  * @Return function

@@ -7,9 +7,17 @@ app.controller('adminCtrl', ['$scope', '$rootScope', 'mainServices', function($s
   $scope.viewDetailProposition = function(proposition) {
     $('#modalViewProposition').modal('show');
     console.log("proposition : ", proposition);
-    //set proposition in modal
+    $scope.modal = {};
+    $scope.modal = proposition;
+    /*$scope.modal.problematique = proposition.problematique;
+    $scope.modal.solution = proposition.solution;
+    $scope.modal.status = proposition.status;*/
   }
 
+  $scope.updatePropositionByAdmin = function(){
+    //call service pour mettre à jour les données en bases
+    console.log("modal : ", $scope.modal);
+  }
 
   //Page-Level Demo Scripts - Tables - Use for reference
 	$(document).ready(function() {

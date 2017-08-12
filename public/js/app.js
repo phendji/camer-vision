@@ -15,6 +15,7 @@ var app = angular.module('kmerApp',
                                   'authModule',*/
                                   'kmerApp.controllers',
                                   'kmerApp.services',
+                                  'kmerApp.directives',
                                   'ngRoute',
                                   'home',
                                   'who',
@@ -80,6 +81,14 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
     .when('/', {
       controller: 'homeCtrl',
       templateUrl: 'modules/home/home.html'
+    })
+
+    .when('/charte', {
+      templateUrl: 'modules/singlepage/charte.html'
+    })
+
+    .when('/nous-contacter', {
+      templateUrl: 'modules/singlepage/contacter.html'
     })
 
     .when('/odTgud6-admin', {
