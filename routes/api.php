@@ -33,3 +33,8 @@ Route::group(['prefix' => 'propositions'], function () {
     Route::post('/', 'PropositionController@store');
     Route::get('/', 'PropositionController@index');
 });
+
+/**
+ * Email routes
+ */
+Route::post('/send', 'ContactController@send');

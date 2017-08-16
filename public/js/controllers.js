@@ -3,8 +3,12 @@ var app = angular.module('kmerApp.controllers', []);
 
 app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($scope, $rootScope, mainServices) {
 
+  
+  $scope.contact = {}; //init var
+
   //Liste des sous rubriques
   $scope.listSousRubrique = LIST_DES_SOUS_RUBRIQUES;
+
 
   /*
    * Liste des propositions.
@@ -26,6 +30,20 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
   };
 
   $scope.listProposition();
+
+  $scope.sendEmailContact = function(){
+    mainServices.sendContactByEmail(function(response){
+      console.log("response : ", response);
+      /*switch (response.status){
+        case 200:
+          $scope.listDesPropositions = response.data;
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }*/
+    });
+  };
 
   /*
    * Gestion des messages d'erreur.

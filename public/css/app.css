@@ -19,6 +19,7 @@ a{
 
 a:hover{
   color: #ae3925;
+  text-decoration: none;
 }
 
 p{
@@ -435,5 +436,21 @@ form > div > div select{
   }
 }
 
+
+
+
+.nav-nav>ul>li.active>a{
+  color: #ae3925;
+}
+
+.nav-tabs > li > a:hover,
+.nav > li > a:hover, .nav > li > a:focus{
+  background-color: #ffffff !important;
+}
+
+.nav-nav > ul > li > a{
+  padding: 8px 7px;
+  margin: 0px;
+}
 /* Tooltip */
 

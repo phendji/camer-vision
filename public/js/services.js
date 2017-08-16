@@ -40,7 +40,34 @@ app.factory('mainServices', ['$http', '$rootScope',  function($http, $rootScope)
         }, function errorCallback(response) {
         callback(response)
       });
+    },
+
+    sendContactByEmail: function(contact, callback) {
+      $http({
+        method: 'POST',
+        url: remoteApi + "/send",
+        data: contact
+      }).then(function successCallback(response) {
+        //Appel asynchrone, quand la réponse est success
+        callback(response);
+        }, function errorCallback(response) {
+        callback(response)
+      });
+    },
+
+    updateLike: function(idProposition, callback){
+      $http({
+        method: 'POST',
+        url: remoteApi + "/updateLike",
+        data: idProposition
+      }).then(function successCallback(response) {
+        //Appel asynchrone, quand la réponse est success
+        callback(response);
+        }, function errorCallback(response) {
+        callback(response)
+      });
     }
+
  	}
 
 }]);
