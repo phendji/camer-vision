@@ -45,6 +45,27 @@ app.controller('rubriqueCtrl', ['$scope', '$rootScope', '$location', 'mainServic
         });
     };
 
+     /*
+     * Updating likes of the proposition
+     * @Return void | update scope with number of like
+     * @Auteur : phendji
+     *
+    $scope.updateViewOfProposition = function(idProposition) {
+        mainServices.updateView(idProposition, function(response){
+            //console.log("response : ", response);
+            switch (response.status){
+                case 200:
+                    //$scope.listDesPropositions = response.data;
+                    //for sur les propositions pour le mettre à jour
+                    //avec le nombre de like provenant de la base.
+                break;
+
+                default:
+                    $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+            }
+        });
+    };*/
+
     /*
      * Updating views of the proposition
      * @Return void | update scope with number of view

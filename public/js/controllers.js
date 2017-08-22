@@ -9,6 +9,9 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
   //Liste des sous rubriques
   $scope.listSousRubrique = LIST_DES_SOUS_RUBRIQUES;
 
+  $scope.maxCaracteresProblematique = MAX_CARACTERES_PROBLEMATIQUE;
+  $scope.maxCaracteresSolution = MAX_CARACTERES_SOLUTION;
+
 
   /*
    * Liste des propositions.

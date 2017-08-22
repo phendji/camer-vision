@@ -3,7 +3,8 @@ var app = angular.module('home', []);
 
 app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
     console.log("homeCtrl");
-    //console.log("$scope.listDesPropositions : ", $scope.listDesPropositions);
+    console.log("$scope.listDesPropositions : ", $scope.listDesPropositions);
+    console.log("$scope.listSousRubrique : ", $scope.listSousRubrique);
 
     $scope.expandedAccordion = function(idProposition){
         //console.log("idProposition : ", idProposition);

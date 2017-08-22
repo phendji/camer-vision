@@ -11,105 +11,36 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <a href="#/sous-rubrique/10" class="card" ng-click="expandedAccordion(1)">
+        <div class="col-md-12"><!--href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)"-->
+            <a ng-repeat="proposition in listDesPropositions | limitTo: 3" class="card">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
                             <div class="theme">
                                 <h5>
-                                    Système politique / Institutions / Administation / Société civile
+                                    {{listSousRubrique[proposition.id].titre}}
                                 </h5>
                             </div>
                             <div class="proposition">
                                 <div class="probleme">
-                                    Sed ut perspiciatis unde omnis iste natus error si.
+                                    {{proposition.problematique | limitTo: maxCaracteresProblematique }}...?
                                 </div>
                                 <div class="solution">
-                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt di.
+                                    {{proposition.solution | limitTo: maxCaracteresSolution }}
                                 </div>
                             </div>
                             <div class="details">
                                 <div class="author">
-                                    <span>by Hollande </span>
+                                    <span>by</span>
+                                    <span>{{proposition.user.nom | limitTo: 10 }}</span>
                                 </div>
                                 <div class="notify">
                                     <span class="glyphicon glyphicon-eye-open"></span>
-                                    <span>56</span>
+                                    <span>{{proposition.views_count}}</span>
                                 </div>
                                 <div class="notify">
                                     <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    <span>0</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </a>
-            <a href class="card">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <div class="theme">
-                                <h5>
-                                    Transports / Infrastructures de transports : route-rail-air-mer
-                                </h5>
-                            </div>
-                            <div class="proposition">
-                                <div class="probleme">
-                                    Int occaecati cupiditate non provident, simil
-                                </div>
-                                <div class="solution">
-                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="author">
-                                    <span>by Thuendem </span>
-                                </div>
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                    <span>3</span>
-                                </div>
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    <span>40</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </a>
-            <a href class="card">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <div class="theme">
-                                <h5>
-                                    Santé / Infrastructures sanitaires / Accès aux soins
-                                </h5>
-                            </div>
-                            <div class="proposition">
-                                <div class="probleme">
-                                    At vero eos et accusamus et iusto odio dignissimos
-                                </div>
-                                <div class="solution">
-                                    Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt di.
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="author">
-                                    <span>by Sejour </span>
-                                </div>
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                    <span>130</span>
-                                </div>
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    <span>11</span>
+                                    <span>{{proposition.likes_count}}</span>
                                 </div>
                             </div>
                         </div>
@@ -121,104 +52,36 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href class="card">
-                <div class="col-sm-6 col-md-4">
+            <a ng-repeat="proposition in listDesPropositions | limitTo: 3 : 3" class="card">
+               <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
                             <div class="theme">
                                 <h5>
-                                    Système politique / Institutions / Administation / Société civile
+                                    {{listSousRubrique[proposition.id].titre}}
                                 </h5>
+                                {{listSousRubrique[proposition.id].titre}}
                             </div>
                             <div class="proposition">
                                 <div class="probleme">
-                                    Sed ut perspiciatis unde omnis iste natus error si.
+                                    {{proposition.problematique | limitTo: maxCaracteresProblematique }}...?
                                 </div>
                                 <div class="solution">
-                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt di.
+                                    {{proposition.solution | limitTo: maxCaracteresSolution }}
                                 </div>
                             </div>
                             <div class="details">
                                 <div class="author">
-                                    <span>by Mabou </span>
+                                    <span>by</span>
+                                    <span>{{proposition.user.nom | limitTo: 10 }}</span>
                                 </div>
                                 <div class="notify">
                                     <span class="glyphicon glyphicon-eye-open"></span>
-                                    <span>56</span>
-                                </div> 
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    <span>9</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </a>
-            <a href class="card">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <div class="theme">
-                                <h5>
-                                    Transports / Infrastructures de transports : route-rail-air-mer
-                                </h5>
-                            </div>
-                            <div class="proposition">
-                                <div class="probleme">
-                                    Int occaecati cupiditate non provident, simil
-                                </div>
-                                <div class="solution">
-                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="author">
-                                    <span>by Camel </span>
-                                </div>
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                    <span>13</span>
+                                    <span>{{proposition.views_count}}</span>
                                 </div>
                                 <div class="notify">
                                     <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    <span>22</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </a>
-            <a href class="card">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <div class="theme">
-                                <h5>
-                                    Education / Enseignement supérieur / Formation professionnelle
-                                </h5>
-                            </div>
-                            <div class="proposition">
-                                <div class="probleme">
-                                    Aut officiis debitis aut rerum necessita
-                                </div>
-                                <div class="solution">
-                                    Tibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="author">
-                                    <span>by Philipe </span>
-                                </div>
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                    <span>13</span>
-                                </div>
-                                <div class="notify">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    <span>5</span>
+                                    <span>{{proposition.likes_count}}</span>
                                 </div>
                             </div>
                         </div>

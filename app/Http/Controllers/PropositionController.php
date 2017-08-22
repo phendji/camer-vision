@@ -51,4 +51,29 @@ class PropositionController extends Controller
 
         return ResponseHelper::success($list);
     }
+
+    /**
+     * @return mixed
+     */
+    protected function updateLike($id)
+    {
+        if (!$propositionIpaddress = $this->propositionService->updateLike($id, \Request::ip())){
+            return ResponseHelper::success('hpg.testpatrick', 202);
+        }
+
+        return ResponseHelper::success($propositionIpaddress);
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function updateView($id)
+    {
+        if (!$propositionIpaddress = $this->propositionService->updateView($id, \Request::ip())){
+            return ResponseHelper::success('hpg.testpatrick', 202);
+        }
+
+        return ResponseHelper::success($propositionIpaddress);
+    }
+
 }

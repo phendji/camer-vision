@@ -13,7 +13,6 @@ app.directive('navFlottant', function () {
     };
 });
 
-
 /* Directive Attribute d'une balise html, appel de la fonction
  * à chaque press sur le bouton ENTREE du clavier
  * @Return function

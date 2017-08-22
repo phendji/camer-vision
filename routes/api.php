@@ -13,12 +13,6 @@
 */
 
 /**
- * Auth routes
- */
-Route::post('authenticate', 'AuthController@authenticate');
-Route::get('authenticate/user', 'AuthController@getAuthenticatedUser');
-
-/**
  * User routes
  */
 Route::group(['prefix' => 'users'], function () {
@@ -38,3 +32,10 @@ Route::group(['prefix' => 'propositions'], function () {
  * Email routes
  */
 Route::post('/send', 'ContactController@send');
+
+/**
+ * Like routes
+ * View routes
+ */
+Route::put('updateLike/{id}', 'PropositionController@updateLike');
+Route::put('updateView/{id}', 'PropositionController@updateView');

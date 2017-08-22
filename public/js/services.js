@@ -57,9 +57,20 @@ app.factory('mainServices', ['$http', '$rootScope',  function($http, $rootScope)
 
     updateLike: function(idProposition, callback){
       $http({
-        method: 'POST',
-        url: remoteApi + "/updateLike",
-        data: idProposition
+        method: 'PUT',
+        url: remoteApi + "/updateLike/"+idProposition
+      }).then(function successCallback(response) {
+        //Appel asynchrone, quand la réponse est success
+        callback(response);
+        }, function errorCallback(response) {
+        callback(response)
+      });
+    },
+
+    updateView: function(idProposition, callback){
+      $http({
+        method: 'PUT',
+        url: remoteApi + "/updateView/"+idProposition
       }).then(function successCallback(response) {
         //Appel asynchrone, quand la réponse est success
         callback(response);
