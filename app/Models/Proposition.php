@@ -13,7 +13,7 @@ class Proposition extends Model
      * @var array
      */
     protected $fillable = [
-      'id_user','id_theme', 'problematique', 'solution','status'
+      'id_user','id_theme', 'problematique', 'solution','status','attachment_to_country'
     ];
 
     /**

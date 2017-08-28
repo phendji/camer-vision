@@ -58,7 +58,7 @@ class PropositionController extends Controller
     protected function updateLike($id)
     {
         if (!$propositionIpaddress = $this->propositionService->updateLike($id, \Request::ip())){
-            return ResponseHelper::success('hpg.testpatrick', 202);
+            return ResponseHelper::success('hpg.unlike_proposition', 202);
         }
 
         return ResponseHelper::success($propositionIpaddress);
@@ -70,7 +70,7 @@ class PropositionController extends Controller
     protected function updateView($id)
     {
         if (!$propositionIpaddress = $this->propositionService->updateView($id, \Request::ip())){
-            return ResponseHelper::success('hpg.testpatrick', 202);
+            return ResponseHelper::success('hpg.unlike_proposition', 202);
         }
 
         return ResponseHelper::success($propositionIpaddress);

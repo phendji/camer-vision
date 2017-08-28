@@ -13,7 +13,12 @@
 
         		<div class="">
         			<form name="form_proposition" ng-submit="saveProposition()" role="form">
-	        			<div style="margin-bottom: 15px;margin-top: 20px;">
+                <div style="margin-bottom: 15px;;margin-top: 20px">
+                  <label> Qu’est-ce qui au Cameroun vous rend le plus fier d’être Camerounais ? *</label>
+                  </br>
+                  <textarea ng-model="proposition.attachment_to_country" rows="3" name="attachment_to_country" style="width: 100%" required ng-maxlength="3"></textarea>
+                </div>
+	        			<div style="margin-bottom: 15px;">
 		        			<label> Choisir une sous rubrique *: </label>
 		        			<select
 		        				required
@@ -36,7 +41,7 @@
 		        		<div class="">
 		        			<div class="col-xs-8" style="font-style: italic; font-size: 9px; color: #ae3925;">(*) : champs obligatoires </div>
 		        			<div class="col-xs-4">
-		        				<!--<button type="button" class="btn" data-toggle="modal" data-target="#myModal">Valider</button>-->
+		        				<!--<button type="button" class="btn" data-toggle="modal" data-target="#infoUserModal">Valider</button>-->
 		        				<button  style="float: right;" type="submit" ng-disabled="form_proposition.$invalid" class="btn" >Valider</button>
 		        			</div>
 		        		</div>
@@ -49,7 +54,7 @@
         			<p style="font-weight: 700; color: #ae3925;" >LES PLUS RECENTES<p>
         		</div>
 
-        		<a href class="card">
+        		<!-- <a href class="card">
 		            <div class="col-sm-12 col-md-12">
 		                <div class="thumbnail">
 		                    <div class="caption">
@@ -119,7 +124,46 @@
 		                    
 		                </div>
 		            </div>
-		        </a>
+		        </a> -->
+
+            <!--href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)"-->
+            <a href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)" ng-repeat="proposition in listDesPropositions | limitTo: 2" class="card">
+                <div class="col-sm-12 col-md-12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <div class="theme">
+                                <h5>
+                                    {{listSousRubrique[proposition.id_theme].titre}}
+                                </h5>
+                            </div>
+                            <div class="proposition">
+                                <div class="probleme">
+                                    {{proposition.problematique | limitTo: maxCaracteresProblematique }} ?
+                                </div>
+                                <div class="solution">
+                                    {{proposition.solution | limitTo: maxCaracteresSolution }}
+                                </div>
+                            </div>
+                            <div class="details">
+                                <div class="author">
+                                    <span>by</span>
+                                    <span class="text-capitalize">{{proposition.user.nom | limitTo: 14 }}</span>
+                                </div>
+                                <div class="notify">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span>{{proposition.views_count}}</span>
+                                </div>
+                                <div class="notify">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                    <span>{{proposition.likes_count}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </a>
+
         	</div>
         </div>
     </div>
@@ -128,7 +172,7 @@
 <nav-flottant></nav-flottant>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="infoUserModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -142,56 +186,54 @@
       		<div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px;">
       			Camer Vision certifie que vos informations ne seront utilisées que dans le cadre de la présente initiative citoyenne et ne seront en aucun cas cédées à un autre organisme.
       		</div>
-      		<form name="form" ng-submit="saveUser()" role="form">
-		      	<div class="col-md-6 col-sm-6">
-		            <div> 
-		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="nom" class="" ng-model="user.nom" placeholder="Nom" required/>
-		            </div>
-		            
-		            <div> 
-		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="prenom" class="" ng-model="user.prenom" placeholder="Prénom" required/>
-		            </div>
-
-		            <div> 
-		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="age" class="" ng-model="user.age" placeholder="Age" required/>
-		            </div>
-		            <div> 
-		                <select 
-		                	class="col-md-12 col-sm-12 col-xs-12"
-		                	ng-model="user.sexe"
-		                	required>
-		                	<option>Masculin</option>
-		                	<option>Féminin</option>
-		                </select>
-		            </div>
-		      	</div>
-		      	<div class="col-md-6 col-sm-6">
-		      		<div> 
-		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="email" class="" ng-model="user.email" placeholder="email" required/>
-		            </div>
-
-		      		<div> 
-		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="ville" class="" ng-model="user.ville" placeholder="Ville de résidence" required/>
-		            </div>
-		            
-		            <div> 
-		                <input class="col-md-12 col-sm-12 col-xs-12" type="text" name="pays" class="" ng-model="user.pays" placeholder="Pays de résidence" required/>
-		            </div>
-		            <div class="checkbox">
-					    <label>
-					      <input type="checkbox" ng-model="user.newsletter"> s'abonner à la newsletter
-					    </label>
-		            </div>
-		      	</div>
-		      	<div class="col-md-12">
-		      		<div class="col-md-7" style="font-style: italic; font-size: 10px; float: left; color: #ae3925">
-		      			Tous les champs sont obligatoires
-		      		</div>
-			      	<div class="form-actions col-md-5">
-	                    <button type="submit" ng-disabled="form.$invalid" class="btn"  style="float: right;">Valider mes informations</button>
-	                </div>
-	            </div>
-	      	</form>
+          <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px;">
+            <form class="row" name="form" ng-submit="saveUser()" role="form">
+              <div class="col-md-6 col-sm-6">
+                <div> 
+                  <input class="col-md-12 col-sm-12" type="text" name="nom" class="" ng-model="user.nom" placeholder="Nom" required/>
+                </div>
+                <div> 
+                  <input class="col-md-12 col-sm-12" type="text" name="prenom" class="" ng-model="user.prenom" placeholder="Prénom" required/>
+                </div>
+                <div> 
+                    <input class="col-md-12 col-sm-12" type="text" name="age" class="" ng-model="user.age" placeholder="Age" required/>
+                </div>
+                <div>
+                  <select ng-options="sexe as sexe for sexe in sexes" required ng-model="user.sexe">
+                    <option value="" disabled selected>sexe</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div> 
+                  <input class="col-md-12 col-sm-12" type="text" name="email" class="" ng-model="user.email" placeholder="email" required/>
+                </div>
+                <div> 
+                  <input class="col-md-12 col-sm-12" type="text" name="ville" class="" ng-model="user.ville" placeholder="Ville de résidence" required/>
+                </div>
+                <div> 
+                  <input class="col-md-12 col-sm-12" type="text" name="pays" class="" ng-model="user.pays" placeholder="Pays de résidence" required/>
+                </div>
+                <div class="newsletter">
+                  <label class="control control--checkbox">s'abonner à la newsletter
+                    <input type="checkbox" ng-model="user.newsletter"/>
+                    <div class="control__indicator"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12" style="margin-bottom: 16px;">
+                <div style="font-style: italic; font-size: 10px; color: #ae3925">
+                  Tous les Champs sont obligatoires
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div class="form-actions">
+                  <button type="submit" ng-disabled="form.$invalid" class="btn">Valider mes informations</button>
+                </div>
+                </div>
+              </div>
+            </form>
+          </div>
 	    </div>
       </div>
     </div>

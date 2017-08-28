@@ -7,17 +7,18 @@ app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope)
     console.log("$scope.listSousRubrique : ", $scope.listSousRubrique);
 
     $scope.expandedAccordion = function(idProposition){
-        //console.log("idProposition : ", idProposition);
+        console.log("idProposition : ", idProposition);
 
-        //$(document).ready(function() {
-            //var accordionId = "#accordion";
-            //$(accordionId + ' .panel-collapse:not(".in")').collapse('show');
-           // var accordionId = "#collapse_1";
-           // $("div"+accordionId).addClass('in');
-           // $(accordionId).collapse('show');
-            //numPanelOpen = $(accordionId + ' .collapse.in').length;
-            //console.log("numPanelOpen : ", numPanelOpen);
-        //});
+        $(document).ready(function() {
+           //removeClass();
+            var accordionId = "#accordion";
+            $(accordionId + ' .panel-collapse:not(".in")').collapse('show');
+           var accordionId = "#collapse_1";
+           $("div"+accordionId).addClass('in');
+           $(accordionId).collapse('show');
+            numPanelOpen = $(accordionId + ' .collapse.in').length;
+            console.log("numPanelOpen : ", numPanelOpen);
+        });
 
      /* $(".toggle-accordion").on("click", function() {
         var accordionId = $(this).attr("accordion-id"),

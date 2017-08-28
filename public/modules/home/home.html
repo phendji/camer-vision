@@ -11,8 +11,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12"><!--href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)"-->
-            <a ng-repeat="proposition in listDesPropositions | limitTo: 3" class="card">
+        <div class="col-md-12">
+            <!--href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)"-->
+            <a href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)" ng-repeat="proposition in listDesPropositions | limitTo: 3" class="card">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
@@ -23,7 +24,7 @@
                             </div>
                             <div class="proposition">
                                 <div class="probleme">
-                                    {{proposition.problematique | limitTo: maxCaracteresProblematique }}...?
+                                    {{proposition.problematique | limitTo: maxCaracteresProblematique }} ?
                                 </div>
                                 <div class="solution">
                                     {{proposition.solution | limitTo: maxCaracteresSolution }}
@@ -32,7 +33,7 @@
                             <div class="details">
                                 <div class="author">
                                     <span>by</span>
-                                    <span>{{proposition.user.nom | limitTo: 10 }}</span>
+                                    <span class="text-capitalize">{{proposition.user.nom | limitTo: 14 }}</span>
                                 </div>
                                 <div class="notify">
                                     <span class="glyphicon glyphicon-eye-open"></span>
@@ -63,7 +64,7 @@
                             </div>
                             <div class="proposition">
                                 <div class="probleme">
-                                    {{proposition.problematique | limitTo: maxCaracteresProblematique }}...?
+                                    {{proposition.problematique | limitTo: maxCaracteresProblematique }} ?
                                 </div>
                                 <div class="solution">
                                     {{proposition.solution | limitTo: maxCaracteresSolution }}
@@ -72,7 +73,9 @@
                             <div class="details">
                                 <div class="author">
                                     <span>by</span>
-                                    <span>{{proposition.user.nom | limitTo: 10 }}</span>
+                                    <span class="text-capitalize">
+                                        {{proposition.user.nom | limitTo: 14 }}
+                                    </span>
                                 </div>
                                 <div class="notify">
                                     <span class="glyphicon glyphicon-eye-open"></span>

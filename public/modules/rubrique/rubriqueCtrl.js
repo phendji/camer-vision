@@ -31,7 +31,7 @@ app.controller('rubriqueCtrl', ['$scope', '$rootScope', '$location', 'mainServic
      */
     $scope.updateLikeOfProposition = function(idProposition) {
         mainServices.updateLike(idProposition, function(response){
-            //console.log("response : ", response);
+            console.log("response : ", response);
             switch (response.status){
                 case 200:
                     //$scope.listDesPropositions = response.data;
@@ -40,7 +40,7 @@ app.controller('rubriqueCtrl', ['$scope', '$rootScope', '$location', 'mainServic
                 break;
 
                 default:
-                    $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+                    $scope.managerErrorMsgs("infomsg", response.data);
             }
         });
     };
