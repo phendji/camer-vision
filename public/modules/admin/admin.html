@@ -11,12 +11,12 @@
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs nav-icons" role="tablist">
                     <li role="presentation">
-                        <a class="" href data-target="#viewerDashboardProposition" ng-click="" aria-controls="profile" role="tab" data-toggle="tab" data-tabgenerate="true">
+                        <a class="" href data-target="#viewerDashboardProposition" ng-click="resetNav('ong1')" aria-controls="profile" role="tab" data-toggle="tab" data-tabgenerate="true">
                           <i class="glyphicon glyphicon-user">  </i> CONTRIBUTEURS
                         </a>
                     </li>
                     <li role="presentation">
-                        <a class="" href data-target="#viewerDashboardContributeurs" ng-click="" aria-controls="profile" role="tab" data-toggle="tab" data-tabgenerate="true">
+                        <a class="" href data-target="#viewerDashboardContributeurs" ng-click="resetNav('ong2')" aria-controls="profile" role="tab" data-toggle="tab" data-tabgenerate="true">
                           <i class="glyphicon glyphicon-stats">  </i> PROPOSITIONS
                         </a>
                     </li>
@@ -44,7 +44,10 @@
                                   <tbody>
                                     <tr class="odd" ng-repeat="proposition in listDesPropositions track by $index" ng-click="viewDetailProposition(proposition)">
                                       <td>{{proposition.id}}</td>
-                                      <td>{{proposition.id_user}}</td>
+                                      <td>
+                                        <p>{{proposition.user.nom}}</p>
+                                        <p>{{proposition.user.prenom}}</p>
+                                      </td>
                                       <td>{{proposition.problematique}}</td>
                                       <td>{{proposition.solution}}</td>
                                       <td>{{proposition.status  == '0' ? "Dépublier" : "Publier"}}</td>

@@ -11,21 +11,21 @@ class Contact extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Elements de contact
-     * @var array
-     */
-    public $contact;
-    
+    public $email;
+    public $nom;
+    public $contenu;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
         //
-        $this->contact = $contact;
+        $this->email = $data['email'];
+        $this->nom = $data['nom'];
+        $this->contenu = $data['contenu'];
     }
 
     /**
@@ -35,8 +35,6 @@ class Contact extends Mailable
      */
     public function build()
     {
-        //return $this->view('view.name');
-        return $this->from('hendjipatrick@yahoo.fr')
-            ->view('emails.contact');
+        return $this->view('emails.contact'); //view.name
     }
 }

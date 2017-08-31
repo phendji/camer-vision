@@ -40,6 +40,67 @@ class PropositionController extends Controller
         return ResponseHelper::success($list);
     }
 
+    
+      /**
+     * @return mixed null
+     */
+    protected function indexNull()
+    {
+        if (!$list = $this->propositionService->indexNull()){
+            return ResponseHelper::error('hpg.empty_list', 404);
+        }
+
+        return ResponseHelper::success($list);
+    }
+
+    /**
+     * Les Six propositions les plus likés dont le status est different de 0
+     * @return mixed null
+     */
+    protected function propositionWithMostLike()
+    {
+      if (!$list = $this->propositionService->getSixPropositionsWithMostLike()){
+        return ResponseHelper::error('hpg.empty_list', 404);
+      }
+      return ResponseHelper::success($list);
+    }
+
+    /**
+     * Récuperer la liste des propositions ayant des id_user != NULL
+     * @return mixed null
+     */
+    protected function propositionWithIdUserNotNull()
+    {
+      if (!$list = $this->propositionService->getPropositionWithIdUserNotNull()){
+        return ResponseHelper::error('hpg.empty_list', 404);
+      }
+      return ResponseHelper::success($list);
+    }
+
+    /**
+     *  Récuperer la liste des propositions ayant des id_user != NULL et status != 0
+     * @return mixed null
+     */
+    protected function propositionWithIdUserAndStatusNotNull()
+    {
+      if (!$list = $this->propositionService->getPropositionWithIdUserAndStatusNotNull()){
+        return ResponseHelper::error('hpg.empty_list', 404);
+      }
+      return ResponseHelper::success($list);
+    }
+    
+    /**
+     * Récuperer la liste des propositions ayant des id_user = NULL
+     * @return mixed null
+     */
+    protected function propositionWithIdUserNull()
+    {
+      if (!$list = $this->propositionService->getPropositionWithIdUserNull()){
+        return ResponseHelper::error('hpg.empty_list', 404);
+      }
+      return ResponseHelper::success($list);
+    }
+
     /**
      * @return mixed
      */
@@ -57,6 +118,7 @@ class PropositionController extends Controller
      */
     protected function updateLike($id)
     {
+        //if (!$propositionIpaddress = $this->propositionService->updateLike($id, \Request::ip())){
         if (!$propositionIpaddress = $this->propositionService->updateLike($id, \Request::ip())){
             return ResponseHelper::success('hpg.unlike_proposition', 202);
         }

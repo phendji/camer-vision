@@ -32,19 +32,54 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
     });
   };
 
+   /*
+   * Liste des propositions id_user null.
+   * @Return array of object
+   * @Auteur : phendji
+   */
+  $scope.listPropositionNull = function() {
+    mainServices.getListPropositionWhereNull(function(response){
+      console.log("response NULL: ", response);
+      switch (response.status){
+        case 200:
+          $scope.listDesPropositionsNull = response.data;
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }
+    });
+  };
+
+   $scope.listPropositionWithIdUserAndStatusNotNull = function() {
+    mainServices.getAllPropositionWithIdUserAndStatusIsNotNull(function(response){
+      console.log("response status and id_user<>NULL: ", response);
+      switch (response.status){
+        case 200:
+          $scope.persitancePropositions = response.data;
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }
+    });
+  };
+
   $scope.listProposition();
+  $scope.listPropositionNull();
+  $scope.listPropositionWithIdUserAndStatusNotNull();
 
   $scope.sendEmailContact = function(){
-    mainServices.sendContactByEmail(function(response){
+    mainServices.sendContactByEmail($scope.contact, function(response){
       console.log("response : ", response);
-      /*switch (response.status){
+      switch (response.status){
         case 200:
           $scope.listDesPropositions = response.data;
         break;
 
         default:
           $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
-      }*/
+      }
     });
   };
 

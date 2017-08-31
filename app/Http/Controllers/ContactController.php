@@ -4,23 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use App\Mail\Contact;
 
 class ContactController extends Controller
 {
     // ref pour continuer : https://scotch.io/tutorials/ultimate-guide-on-sending-email-in-laravel
     public function send(Request $request)
     {
-        $title = $request->input('title');
-        $content = $request->input('content');
+        $email      = $request->input('email');
+        $nom        = $request->input('nom');
+        $contenu    = $request->input('message');
 
-        Mail::send('emails.contact', ['title' => $title, 'content' => $content], function ($message)
-        {
+        $data = ['email' =>$email, 'nom' =>$nom, 'contenu' =>$contenu];
 
-            $message->from('hendji.officiel@gmail.com', 'Christian Nwamba');
-
-            $message->to('hendjipatrick@yahoo.fr');
-
-        });
+        Mail::to($email)->send(new Contact($data));
 
         return response()->json(['message' => 'Request completed']);
     }

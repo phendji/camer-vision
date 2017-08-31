@@ -27,9 +27,75 @@ class PropositionService
                'likes' => function ($query) {
                    $query->where('type', 'like');
                 }])
+            ->get()->sortByDesc('likes_count')->sortByDesc('views_count')->values()->all();
+    }
+
+     /**
+     * List data null
+     */
+    public function indexNull()
+    {
+        return Proposition::with('user')
+            ->whereNull('id_user')
             ->get();
     }
 
+    /**
+     * TODO : Voir avec Florent car le sortByDesc ne marche pas
+     * Obtenir six propositions pour la page home.html
+     * Filtre : id_user!=null, les plus likés, status != 0 
+     */
+    public function getSixPropositionsWithMostLike()
+    {
+        return Proposition::with('user')
+            ->whereNotNull('id_user')
+            ->where('status', '<>', 0)
+            ->withCount([
+                'views' => function ($query) {
+                   $query->where('type', 'view');
+                },
+               'likes' => function ($query) {
+                   $query->where('type', 'like');
+                }])
+            ->limit(6)
+            ->get()->sortByDesc('likes_count')->values()->all();
+    }
+
+    /**
+     * Liste des propositions ayant un id_user <> null
+     * Filtre : id_user <> null
+     */
+    public function getPropositionWithIdUserNotNull()
+    {   
+        return Proposition::with('user')
+            ->whereNotNull('id_user')
+            ->get();   
+    }
+
+     /**
+     * Liste des propositions ayant un id_user null
+     * Filtre : id_user is null
+     */
+    public function getPropositionWithIdUserNull()
+    {   
+        return Proposition::with('user')
+            ->whereNull('id_user')
+            ->get();   
+    }
+
+    /**
+     * Liste des propositions ayant un id_user <> null et status <> 0
+     * Filtre : id_user <> null et status <> 0
+     */
+    public function getPropositionWithIdUserAndStatusNotNull()
+    {   
+        return Proposition::with('user')
+            ->whereNotNull('id_user')
+            ->where('status', '<>', 0)
+            ->get();   
+    }
+
+    
     /**
      * List data
      */

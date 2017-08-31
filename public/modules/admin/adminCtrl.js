@@ -2,7 +2,62 @@
 var app = angular.module('admin', []);
 
 app.controller('adminCtrl', ['$scope', '$rootScope', 'mainServices', function($scope, $rootScope, mainServices) {
-  //console.log("admin page");
+  console.log("admin page");
+
+   $scope.allPropositions = function() {
+    mainServices.getAllPropositionWithIdUserIsNotNull(function(response){
+      console.log("proposition with idUser <> null ", response);
+      switch (response.status){
+        case 200:
+          $scope.propositionIdUserNotNull = response.data;
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }
+    }),
+    mainServices.getAllPropositionWithIdUserIsNull(function(response){
+      console.log("proposition with idUser == null ", response);
+      switch (response.status){
+        case 200:
+          $scope.propositionIdUserNull = response.data;
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }
+    })
+  };
+
+  $scope.allPropositions();
+
+  /*
+     * Gestion de l'affichage des blocs de navivation.
+     * @onglet <string> : tag sur element cliqué.
+     * @Return void
+     * @Auteur : phendji
+     */
+    $scope.resetNav = function(onglet){
+      switch (onglet) {
+        case 'ong1':
+         console.log("hendji : ", onglet)
+          $("#viewerDashboardProposition").css("display", "block");
+          $("#viewerDashboardContributeurs").css("display", "none");
+          break;
+
+        case 'ong2':
+         console.log("pat : ", onglet)
+          $("#viewerDashboardContributeurs").css("display", "block");
+          $("#viewerDashboardProposition").css("display", "block");
+          break;
+
+        default:
+          $("#viewerDashboardProposition").css("display", "block");
+          $("#viewerDashboardContributeurs").css("display", "none");
+          break;
+        }
+    };
+
 
   $scope.viewDetailProposition = function(proposition) {
     $('#modalViewProposition').modal('show');
