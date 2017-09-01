@@ -3,6 +3,11 @@
         <div class="col-sm-12 describe">
             <div class="col-sm-6 col-sm-offset-3">
                 <h5 class="cmv-color title-page">NOUS CONTACTER</h5>
+                <p>
+                    Pour toutes vos questions, demandes de disponibilités ou de rendez-vous, n’hésitez pas à nous envoyer un email ou via le formulaire ci-dessous. Nous vous répondrons sous 48h maximum.
+                </p>
+            </div>
+            <div ng-if="!mailIsSend" class="col-sm-6 col-sm-offset-3">
                 <form name="form_contact" ng-submit="sendEmailContact()" role="form">
                     <div class="form-group">
                         <label for="nom">Nom:</label>
@@ -20,7 +25,12 @@
                     <button type="submit" ng-disabled="form_contact.$invalid" class="btn btn-default">Envoyer</button>
                 </form>
             </div>
+
+            <div style="margin-top: 30px" ng-if="mailIsSend" class="cmv-color col-sm-6 col-sm-offset-3">
+                <h4>Votre message a bien été envoyé.</h4>
+            </div>
         </div>
     </div>
 </div>
+
 <nav-flottant></nav-flottant>

@@ -126,7 +126,6 @@ app.factory('mainServices', ['$http', '$rootScope',  function($http, $rootScope)
     },
 
     sendContactByEmail: function(contact, callback) {
-      console.log("contact : ", contact);
       $http({
         method: 'POST',
         url: remoteApi + "/send",

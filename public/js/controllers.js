@@ -5,6 +5,7 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
 
   
   $scope.contact = {}; //init var
+  $scope.mailIsSend = false;
 
   //Liste des sous rubriques
   $scope.listSousRubrique = LIST_DES_SOUS_RUBRIQUES;
@@ -71,14 +72,14 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
 
   $scope.sendEmailContact = function(){
     mainServices.sendContactByEmail($scope.contact, function(response){
-      console.log("response : ", response);
       switch (response.status){
         case 200:
-          $scope.listDesPropositions = response.data;
+          $scope.mailIsSend = true;
+          $scope.managerErrorMsgs("sucessmsg", response.data);
         break;
 
         default:
-          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+          $scope.managerErrorMsgs("errormsg", "Erreur techique. Le mail n'a pas été envoyé, veuillez réessayer plus tard.");
       }
     });
   };
