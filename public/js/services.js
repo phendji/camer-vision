@@ -85,7 +85,25 @@ app.factory('mainServices', ['$http', '$rootScope',  function($http, $rootScope)
 
 
      /**
-     * Obtenir toutes les propositions ayant un id_user == null
+     * Récupérer les données de tous les contributeurs.
+     * Données affichées sur la page admin
+     * return callback function
+     */
+    getAllUser: function(callback){
+      $http({
+        method: 'GET',
+        url: remoteApi + "/users/"
+      }).then(function successCallback(response) {
+        //Appel asynchrone, quand la réponse est success
+        callback(response);
+        }, function errorCallback(response) {
+        callback(response)
+      });
+    },
+
+
+     /**
+     * Récupérer toutes les propositions ayant un id_user == null
      * Utilisé pour afficher les propositions sur la page admin
      * return callback function
      */
@@ -142,6 +160,18 @@ app.factory('mainServices', ['$http', '$rootScope',  function($http, $rootScope)
       $http({
         method: 'PUT',
         url: remoteApi + "/updateLike/"+idProposition
+      }).then(function successCallback(response) {
+        //Appel asynchrone, quand la réponse est success
+        callback(response);
+        }, function errorCallback(response) {
+        callback(response)
+      });
+    },
+
+    updateStatus: function(idProposition, callback){
+      $http({
+        method: 'PUT',
+        url: remoteApi + "/updateStatus/"+idProposition
       }).then(function successCallback(response) {
         //Appel asynchrone, quand la réponse est success
         callback(response);

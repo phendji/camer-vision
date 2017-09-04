@@ -31,6 +31,43 @@ app.controller('adminCtrl', ['$scope', '$rootScope', 'mainServices', function($s
 
   $scope.allPropositions();
 
+
+  $scope.getAllUser = function(){
+    mainServices.getAllUser(function(response){
+      console.log("users : ", response);
+      switch (response.status){
+        case 200:
+          $scope.users = response.data;
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }
+    })
+  };
+
+  $scope.getAllUser();
+
+  $scope.publierOrDeplier = function(idProposition){
+    console.log("idProposition : ", idProposition);
+    mainServices.updateStatus(idProposition, function(response){
+      console.log("proposition : ", response);
+      switch (response.status){
+        case 200:
+          $scope.managerErrorMsgs("sucessmsg", "La proposition a été mis à jour.");
+          $scope.modal.status = !$scope.modal.status
+        break;
+
+        default:
+          $scope.managerErrorMsgs("errormsg", "Erreur techique, veuillez réessayer plus tard.");
+      }
+    })
+  };
+
+
+
+
+
   /*
      * Gestion de l'affichage des blocs de navivation.
      * @onglet <string> : tag sur element cliqué.
@@ -39,25 +76,33 @@ app.controller('adminCtrl', ['$scope', '$rootScope', 'mainServices', function($s
      */
     $scope.resetNav = function(onglet){
       switch (onglet) {
-        case 'ong1':
-         console.log("hendji : ", onglet)
+        case 'propositions':
           $("#viewerDashboardProposition").css("display", "block");
+          $("#viewerDashboardPropositionNull").css("display", "block");
           $("#viewerDashboardContributeurs").css("display", "none");
           break;
 
-        case 'ong2':
-         console.log("pat : ", onglet)
+        case 'contributeurs':
           $("#viewerDashboardContributeurs").css("display", "block");
-          $("#viewerDashboardProposition").css("display", "block");
+          $("#viewerDashboardProposition").css("display", "none");
+          $("#viewerDashboardPropositionNull").css("display", "none");
+          break;
+        
+        case 'unkown':
+          $("#viewerDashboardPropositionNull").css("display", "block");
+          $("#viewerDashboardProposition").css("display", "none");
+          $("#viewerDashboardContributeurs").css("display", "none");
           break;
 
         default:
           $("#viewerDashboardProposition").css("display", "block");
           $("#viewerDashboardContributeurs").css("display", "none");
+          $("#viewerDashboardPropositionNull").css("display", "none");
           break;
         }
     };
 
+    $scope.resetNav();
 
   $scope.viewDetailProposition = function(proposition) {
     $('#modalViewProposition').modal('show');

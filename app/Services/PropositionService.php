@@ -148,4 +148,20 @@ class PropositionService
 
         return false;
     }
+
+    /**
+     * Update proposition
+     */
+    public function updateStatus($id)
+    {    
+        if ($id){
+            $proposition = Proposition::find($id);
+            $status = $proposition['status'];
+            $status = ($status) ? '0' : '1';
+            $proposition->update(array('status' => $status));
+        } else {
+            return false;
+        }
+        return $proposition;
+    }
 }

@@ -41,6 +41,8 @@ Route::post('/send', 'ContactController@send');
 /**
  * Like routes
  * View routes
+ * Status(Publier/Deplier) routes
  */
 Route::put('updateLike/{id}', 'PropositionController@updateLike');
 Route::put('updateView/{id}', 'PropositionController@updateView');
+Route::put('updateStatus/{id}', 'PropositionController@updateStatus');

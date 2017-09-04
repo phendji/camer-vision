@@ -131,11 +131,22 @@ class PropositionController extends Controller
      */
     protected function updateView($id)
     {
+
+        //$ip_address = $_SERVER['HTTP_CLIENT_IP'];
         if (!$propositionIpaddress = $this->propositionService->updateView($id, \Request::ip())){
             return ResponseHelper::success('hpg.unlike_proposition', 202);
         }
 
         return ResponseHelper::success($propositionIpaddress);
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function updateStatus($id)
+    {
+        $this->propositionService->updateStatus($id);
+        return ResponseHelper::success($id);
     }
 
 }
