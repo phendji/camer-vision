@@ -77,6 +77,19 @@ class PropositionController extends Controller
       return ResponseHelper::success($list);
     }
 
+     /**
+     *  Récuperer la liste des propositions par theme
+     * @return mixed null
+     */
+    protected function propositionsByTheme($idTheme)
+    {
+      if (!$list = $this->propositionService->getPropositionByTheme($idTheme)){
+        return ResponseHelper::error('hpg.empty_list', 404);
+      }
+      return ResponseHelper::success($list);
+    }
+    
+
     /**
      *  Récuperer la liste des propositions ayant des id_user != NULL et status != 0
      * @return mixed null

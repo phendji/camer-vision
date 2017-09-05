@@ -62,6 +62,26 @@ class PropositionService
     }
 
     /**
+     * Liste des propositions en fonction de id theme
+     * Filtre : id_theme=$idTheme
+     */
+    public function getPropositionByTheme($idTheme)
+    {   
+        return Proposition::with('user')
+            ->whereNotNull('id_user')
+            ->where('status', '<>', 0)
+            ->where('id_theme', '=', $idTheme)
+            ->withCount([
+                'views' => function ($query) {
+                   $query->where('type', 'view');
+                },
+               'likes' => function ($query) {
+                   $query->where('type', 'like');
+                }])
+            ->get();   
+    }
+
+    /**
      * Liste des propositions ayant un id_user <> null
      * Filtre : id_user <> null
      */

@@ -30,6 +30,20 @@ app.factory('mainServices', ['$http', '$rootScope',  function($http, $rootScope)
       });
     },
 
+
+    
+    getListPropositionsByTheme: function(idTheme, callback){
+      $http({
+        method: 'GET',
+        url: remoteApi + "/propositions/idTheme/"+idTheme
+      }).then(function successCallback(response) {
+        //Appel asynchrone, quand la réponse est success
+        callback(response);
+        }, function errorCallback(response) {
+        callback(response)
+      });
+    },
+
     /**
      * Obtenir les 06 propositions les plus likés
      * Utilisé pour afficher les six propositions sur la page Home et 

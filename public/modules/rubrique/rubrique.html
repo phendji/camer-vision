@@ -11,54 +11,29 @@
             </div>
             <div class="col-sm-12" id="accordion">
 
-                <div class="row" style="margin-bottom: 20px;">
+                <div class="row" ng-repeat="proposition in propositionsLinkToTheme track by $index"  style="margin-bottom: 20px;">
                     <div class="col-md-12">
                         <div class="col-md-1" style="width: 12px;">
-                            <a data-toggle="collapse" data-target="#collapse_1" data-parent="#accordion" aria-expanded="false" aria-controls="collapse_1">
+                            <a data-toggle="collapse" data-target="#collapse_{{proposition.id}}" data-parent="#accordion" aria-expanded="false" aria-controls="collapse_{{proposition.id}}">
                                 <i class="glyphicon glyphicon-plus cmv-color"></i>
                             </a>
                         </div>
                         <div class="col-md-10">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor
+                            {{proposition.problematique}}
                         </div>
                         <div class="col-md-1">
                             <a href ng-click="updateLikeOfProposition(12)"><!--Le bouton n'est cliquable que si ipaddress n'existe pas en base-->
                                 <i class="glyphicon glyphicon-hand-right cmv-color"></i>
                             </a> 
-                            12
+                            {{proposition.likes_count}}
                         </div>
                     </div>
-                    <div class="col-md-12 panel-collapse collapse" id="collapse_1" style="margin-top:10px;">
+                    <div class="col-md-12 panel-collapse collapse" id="collapse_{{proposition.id}}" style="margin-top:10px;">
                         <div class="col-md-11" style="float: right;">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.eget dolor.
+                            {{proposition.solution}}
                         </div>
                     </div>
                 </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-md-12">
-                        <div class="col-md-1" style="width: 12px;">
-                            <a data-toggle="collapse" data-target="#collapse_2" data-parent="#accordion" aria-expanded="false" aria-controls="collapse_2">
-                                <i class="glyphicon glyphicon-plus cmv-color"></i>
-                            </a>
-                        </div>
-                        <div class="col-md-10">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor
-                        </div>
-                        <div class="col-md-1">
-                            <a href ng-click="updateLikeOfProposition(12)"><!--Le bouton n'est cliquable que si ipaddress n'existe pas en base-->
-                                <i class="glyphicon glyphicon-hand-right cmv-color"></i>
-                            </a> 
-                            12
-                        </div>
-                    </div>
-                    <div class="col-md-12 panel-collapse collapse" id="collapse_2" style="margin-top:10px;">
-                        <div class="col-md-11" style="float: right;">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolorAenean massa. Cum sociis natoque penatibus et magnis; commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.eget dolor.
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

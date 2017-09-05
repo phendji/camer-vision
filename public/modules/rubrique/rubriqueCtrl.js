@@ -3,26 +3,31 @@ var app = angular.module('rubrique', []);
 
 app.controller('rubriqueCtrl', ['$scope', '$rootScope', '$location', 'mainServices', function($scope, $rootScope, $location, mainServices) {
     
-    console.log("rubriqueCtrl");
     var urlLocation = $location.path();
     var arrayOfUrl = splitUrlLocation(urlLocation);
     
     if( arrayOfUrl && arrayOfUrl.length == 3 && arrayOfUrl[1] == "sous-rubrique"){
-        var idSousRubrique = arrayOfUrl[2]-1;
-        $scope.sousRubrique = $scope.listSousRubrique[idSousRubrique];
+        var idTheme = arrayOfUrl[2];
+        $scope.sousRubrique = $scope.listSousRubrique[idTheme];
     }
 
+    $scope.allPropositionsByTheme = function() {
+        //idTheme : 
+        mainServices.getListPropositionsByTheme(idTheme, function(response){
+            console.log("response theme : ", response);
+            switch (response.status){
+                case 200:
+                    $scope.propositionsLinkToTheme = response.data;
+                break;
 
-     $(document).ready(function() {
-        //var accordionId = "#accordion";
-        //$(accordionId + ' .panel-collapse:not(".in")').collapse('show');
-        var accordionId = "#collapse_1";
-        $("div"+accordionId).addClass('in');
-        $(accordionId).collapse('show');
-        //numPanelOpen = $(accordionId + ' .collapse.in').length;
-        //console.log("numPanelOpen : ", numPanelOpen);
-    });
-     
+                default:
+                    $scope.managerErrorMsgs("infomsg", "ERROR");
+            }
+        });
+    };
+
+
+    $scope.allPropositionsByTheme();
 
     /*
      * Updating likes of the proposition
@@ -34,9 +39,7 @@ app.controller('rubriqueCtrl', ['$scope', '$rootScope', '$location', 'mainServic
             console.log("response : ", response);
             switch (response.status){
                 case 200:
-                    //$scope.listDesPropositions = response.data;
-                    //for sur les propositions pour le mettre à jour
-                    //avec le nombre de like provenant de la base.
+                    $scope.managerErrorMsgs("infomsg", response.data);
                 break;
 
                 default:

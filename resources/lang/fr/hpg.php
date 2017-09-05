@@ -5,6 +5,6 @@ return [
     'unknown_hpg' => 'Aucun HPG ne correspond à cet identifiant !',
     'empty_list' => 'Données manquantes !',
     'unsaved_hpg' => 'Le profil HPG n\'a pas été mis à jour !',
-    'unlike_proposition' => 'Vous avez déjà liker cette proposition.',
+    'unlike_proposition' => 'Vous avez déjà likés cette proposition.',
 
 ];

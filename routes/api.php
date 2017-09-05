@@ -26,6 +26,7 @@ Route::group(['prefix' => 'users'], function () {
 Route::group(['prefix' => 'propositions'], function () {
     Route::post('/', 'PropositionController@store');
     Route::get('/', 'PropositionController@index');
+    Route::get('/idTheme/{id}', 'PropositionController@propositionsByTheme');
     Route::get('/indexNull', 'PropositionController@indexNull');
     Route::get('/mostLike', 'PropositionController@propositionWithMostLike');
     Route::get('/idUserNull', 'PropositionController@propositionWithIdUserNull');
