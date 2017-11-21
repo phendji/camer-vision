@@ -40,7 +40,6 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
    */
   $scope.listPropositionNull = function() {
     mainServices.getListPropositionWhereNull(function(response){
-      console.log("response NULL: ", response);
       switch (response.status){
         case 200:
           $scope.listDesPropositionsNull = response.data;
@@ -54,7 +53,6 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
 
    $scope.listPropositionWithIdUserAndStatusNotNull = function() {
     mainServices.getAllPropositionWithIdUserAndStatusIsNotNull(function(response){
-      console.log("response status and id_user<>NULL: ", response);
       switch (response.status){
         case 200:
           $scope.persitancePropositions = response.data;
@@ -66,7 +64,7 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'mainServices', function($sc
     });
   };
 
-  $scope.listProposition();
+  //$scope.listProposition();
   $scope.listPropositionNull();
   $scope.listPropositionWithIdUserAndStatusNotNull();
 

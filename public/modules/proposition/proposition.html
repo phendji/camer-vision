@@ -16,7 +16,7 @@
                 <div style="margin-bottom: 15px;;margin-top: 20px">
                   <label> Qu’est-ce qui au Cameroun vous rend le plus fier d’être Camerounais ? *</label>
                   </br>
-                  <textarea ng-model="proposition.attachment_to_country" rows="3" name="attachment_to_country" style="width: 100%" required ng-maxlength="3"></textarea>
+                  <textarea ng-model="proposition.attachment_to_country" rows="3" name="attachment_to_country" style="width: 100%" required maxlength="150"></textarea>
                 </div>
 	        			<div style="margin-bottom: 15px;">
 		        			<label> Choisir une sous rubrique *: </label>
@@ -29,14 +29,14 @@
 		        			</select>
 		        		</div>
 		        		<div style="margin-bottom: 15px;">
-		        			<label> Enonce du problème (max 50 mots) *</label>
+		        			<label> Enonce du problème *</label>
 		        			</br>
-		        			<textarea ng-model="proposition.problematique" name="problematique" rows="3" style="width: 100%" required></textarea>
+		        			<textarea ng-model="proposition.problematique" name="problematique" rows="7" style="width: 100%" required maxlength="350"></textarea>
 		        		</div>
 		        		<div style="margin-bottom: 15px;">
-		        			<label> Proposer une solution (max 250 mots) *</label>
+		        			<label> Proposer une solution *</label>
 		        			</br>
-		        			<textarea ng-model="proposition.solution" rows="3" name="solution" style="width: 100%" required></textarea>
+		        			<textarea ng-model="proposition.solution" rows="13" name="solution" style="width: 100%" required maxlength="1500"></textarea>
 		        		</div>
 		        		<div class="">
 		        			<div class="col-xs-8" style="font-style: italic; font-size: 9px; color: #ae3925;">(*) : champs obligatoires </div>
@@ -51,83 +51,9 @@
 
         	<div class="col-sm-5 proposition-recents" style="margin-bottom: 30px;">
         		<div class="col-sm-12" style="margin-bottom: 20px">
-        			<p style="font-weight: 700; color: #ae3925;" >LES PLUS RECENTES<p>
+        			<p style="font-weight: 700; color: #ae3925;" >LES PLUS RECENTES</p>
         		</div>
-
-        		<!-- <a href class="card">
-		            <div class="col-sm-12 col-md-12">
-		                <div class="thumbnail">
-		                    <div class="caption">
-		                        <div class="theme">
-		                            <h5>
-		                                Système politique / Institutions / Administation / Société civile
-		                            </h5>
-		                        </div>
-		                        <div class="proposition">
-		                            <div class="probleme">
-		                                Sed ut perspiciatis unde omnis iste natus error si.
-		                            </div>
-		                            <div class="solution">
-		                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt di.
-		                            </div>
-		                        </div>
-		                        <div class="details">
-		                            <div class="author">
-		                                <span>by Hollande </span>
-		                            </div>
-		                            <div class="notify">
-		                                <span class="glyphicon glyphicon-eye-open"></span>
-		                                <span>56</span>
-		                            </div>
-		                            <div class="notify">
-		                                <span class="glyphicon glyphicon-thumbs-up"></span>
-		                                <span>0</span>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    
-		                </div>
-		            </div>
-		        </a>
-
-		        <a href class="card">
-		            <div class="col-sm-12 col-md-12">
-		                <div class="thumbnail">
-		                    <div class="caption">
-		                        <div class="theme">
-		                            <h5>
-		                                Système politique / Institutions / Administation / Société civile
-		                            </h5>
-		                        </div>
-		                        <div class="proposition">
-		                            <div class="probleme">
-		                                Sed ut perspiciatis unde omnis iste natus error si.
-		                            </div>
-		                            <div class="solution">
-		                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt di.
-		                            </div>
-		                        </div>
-		                        <div class="details">
-		                            <div class="author">
-		                                <span>by Hollande </span>
-		                            </div>
-		                            <div class="notify">
-		                                <span class="glyphicon glyphicon-eye-open"></span>
-		                                <span>56</span>
-		                            </div>
-		                            <div class="notify">
-		                                <span class="glyphicon glyphicon-thumbs-up"></span>
-		                                <span>0</span>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    
-		                </div>
-		            </div>
-		        </a> -->
-
-            <!--href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)"-->
-            <a href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)" ng-repeat="proposition in listDesPropositions | limitTo: 2" class="card">
+            <a ng-if="listDesPropositions.length" href="#/sous-rubrique/10"  ng-click="expandedAccordion(1)" ng-repeat="proposition in listDesPropositions | limitTo: 2" class="card">
                 <div class="col-sm-12 col-md-12">
                     <div class="thumbnail">
                         <div class="caption">
@@ -163,7 +89,7 @@
                     </div>
                 </div>
             </a>
-
+            <a ng-if="!listDesPropositions.length">Aucune proposition n'est disponible.</a>
         	</div>
         </div>
     </div>

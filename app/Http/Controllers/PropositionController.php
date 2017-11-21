@@ -33,7 +33,7 @@ class PropositionController extends Controller
      */
     protected function index()
     {
-        if (!$list = $this->propositionService->index()){
+        if (($list = $this->propositionService->index()) === null){
             return ResponseHelper::error('hpg.empty_list', 404);
         }
 
@@ -46,7 +46,7 @@ class PropositionController extends Controller
      */
     protected function indexNull()
     {
-        if (!$list = $this->propositionService->indexNull()){
+        if (($list = $this->propositionService->indexNull()) === null){
             return ResponseHelper::error('hpg.empty_list', 404);
         }
 
@@ -59,7 +59,7 @@ class PropositionController extends Controller
      */
     protected function propositionWithMostLike()
     {
-      if (!$list = $this->propositionService->getSixPropositionsWithMostLike()){
+      if (($list = $this->propositionService->getSixPropositionsWithMostLike()) === null){
         return ResponseHelper::error('hpg.empty_list', 404);
       }
       return ResponseHelper::success($list);
@@ -71,7 +71,7 @@ class PropositionController extends Controller
      */
     protected function propositionWithIdUserNotNull()
     {
-      if (!$list = $this->propositionService->getPropositionWithIdUserNotNull()){
+      if (($list = $this->propositionService->getPropositionWithIdUserNotNull()) === null){
         return ResponseHelper::error('hpg.empty_list', 404);
       }
       return ResponseHelper::success($list);
@@ -83,7 +83,7 @@ class PropositionController extends Controller
      */
     protected function propositionsByTheme($idTheme)
     {
-      if (!$list = $this->propositionService->getPropositionByTheme($idTheme)){
+      if (($list = $this->propositionService->getPropositionByTheme($idTheme)) === null){
         return ResponseHelper::error('hpg.empty_list', 404);
       }
       return ResponseHelper::success($list);
@@ -96,7 +96,7 @@ class PropositionController extends Controller
      */
     protected function propositionWithIdUserAndStatusNotNull()
     {
-      if (!$list = $this->propositionService->getPropositionWithIdUserAndStatusNotNull()){
+      if (($list = $this->propositionService->getPropositionWithIdUserAndStatusNotNull()) === null){
         return ResponseHelper::error('hpg.empty_list', 404);
       }
       return ResponseHelper::success($list);
@@ -108,7 +108,7 @@ class PropositionController extends Controller
      */
     protected function propositionWithIdUserNull()
     {
-      if (!$list = $this->propositionService->getPropositionWithIdUserNull()){
+      if (($list = $this->propositionService->getPropositionWithIdUserNull()) === null){
         return ResponseHelper::error('hpg.empty_list', 404);
       }
       return ResponseHelper::success($list);

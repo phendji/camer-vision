@@ -122,10 +122,3 @@ var LIST_DES_SOUS_RUBRIQUES = {
 			"description": "Qu’ont révélé les affaires Vanessa et Koumatéké ces dernières années du système sanitaire camerounais ? Que révèlent les grèves des médecins de ces derniers mois ? Les Camerounais ont-ils confiance en leur système hospitalier ? Le personnel hospitalier et les formations sanitaires au Cameroun ont-ils les moyens de prendre soin des Camerounais ?"
 		}
 };
-
-//Liste des codes IRD dans l’entête.
-var tabCodeRetourIRD = [
-	"0000",  //status : "SUCCESS", Succès de la requête
-	"0001",  //status : "SUCCESS", Objet métier ou identifiant inconnu 
-	"0002"	 //status : "SUCCESS", Erreur de structuration JSON
-];

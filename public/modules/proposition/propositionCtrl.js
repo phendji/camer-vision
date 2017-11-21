@@ -29,6 +29,7 @@ app.controller('propositionCtrl', ['$scope', '$rootScope', 'mainServices', funct
 
     $scope.saveUser = function() {
         console.log("$scope.user : ", $scope.user);
+        //$scope.user.newsletter = false;
         mainServices.saveUser($scope.user, function(response){
             $('#infoUserModal').modal('hide');
             switch (response.status){
